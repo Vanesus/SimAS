@@ -1,0 +1,143 @@
+\select@language {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Barras de men\'us de simAS}}{7}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Barra de herramientas de simAS}}{8}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ventana del editor}}{9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Panel de edici\'on}}{10}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Ventana de simulaci\'on}}{11}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Panel de simulaci\'on}}{12}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Ventana de simulaci\'on}}{13}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ventana de asistente}}{14}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Ventana de edici\'on}}{14}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Barra de men\'u del editor}}{16}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Men\'u Editor}}{16}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Men\'u Gram\'atica}}{17}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Barra de herramientas del editor}}{17}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Panel de visualizaci\'on de gram\'aticas}}{19}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Parte del nombre, descripci\'on y estado}}{19}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Parte de s\IeC {\'\i }mbolos y s\IeC {\'\i }mbolo inicial}}{20}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Parte de visualizaci\'on de la gram\'atica}}{20}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Asistente de creaci\'on de una nueva Gram\'atica}}{22}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Asistente de creaci\'on de gram\'atica. Paso 1. Datos de la gram\'atica }}{23}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Asistente de creaci\'on de nueva gram\'atica. Paso 2. S\IeC {\'\i }mbolos de la gram\'atica }}{23}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Asistente de creaci\'on de una nueva gram\'atica. Paso 3. Producciones de la gram\'atica }}{24}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Asistente de nueva gram\'atica. Paso 4. S\IeC {\'\i }mbolo inicial de la gram\'atica}}{25}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Validaci\'on gram\'atica correcta}}{26}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Validaci\'on gram\'atica incorrecta}}{26}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Ventana de edici\'on de los datos de la gram\'atica}}{27}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Ventana de gesti\'on del vocabulario}}{28}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Ventana de gesti\'on de los s\IeC {\'\i }mbolos no terminales}}{29}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Ventana de gesti\'on de los s\IeC {\'\i }mbolos terminales}}{30}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Ventana de gesti\'on de las producciones}}{30}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Ventana de inserci\'on y modificaci\'on de producciones}}{31}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Ventana de modificaci\'on de un producci\'on}}{32}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Ventana de selecci\'on del s\IeC {\'\i }mbolo inicial}}{33}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Gram\'atica correcta}}{38}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Gram\'atica factorizada por la izquierda}}{38}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Gram\'atica recursiva por la izquierda}}{39}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Conjuntos primero y siguiente}}{39}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Construcci\'on de la tabla predictiva}}{40}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Aspecto inicial de la pantalla de creaci\'on de las funciones de error}}{41}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Pantalla de creaci\'on de las funciones de error}}{41}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Creaci\'on de una funci\'on de error}}{42}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Error identificador de funci\'on de error}}{43}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Acciones de las funciones de error}}{43}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Borrar funci\'on de error}}{44}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces No utilizar funciones de error}}{45}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Completar tabla predictiva con las funciones de error}}{45}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Error al introducir las funciones de error}}{46}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Barra de men\'us del simulador}}{47}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Men\'u Simulador}}{47}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Barra de herramientas del simulador}}{47}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Panel de visualizaci\'on del simulador descendente}}{48}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces T\IeC {\'\i }tulo y generador del informe de la simulaci\'on descendente}}{49}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Gram\'atica de la simulaci\'on descendente}}{52}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Funciones de error de la simulaci\'on descendente}}{52}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Tabla predictiva de la simulaci\'on descendente}}{53}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Nueva Simulaci\'on Descendente}}{54}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Cadena de entrada}}{54}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Botonera de la simulaci\'on}}{54}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Tabla de la simulaci\'on descendente}}{55}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Introducir una cadena de entrada}}{56}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Modificar una cadena de entrada}}{56}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Simulaci\'on descendente correcta}}{60}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Simulaci\'on descendente incorrecta}}{60}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Selecci\'on del m\'etodo de simulaci\'on ascendente}}{62}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Conjuntos primero y siguiente}}{63}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Construcci\'on de la colecci\'on can\'onica}}{63}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Construcci\'on de la tabla LR}}{64}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Aspecto inicial de la pantalla de creaci\'on de las funciones de error}}{65}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Pantalla de creaci\'on de las funciones de error}}{65}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Creaci\'on de una funci\'on de error}}{66}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Error en el identificador de funci\'on de error}}{67}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Acciones de las funciones de error}}{67}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Borrar funci\'on de error}}{68}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces No utilizar funciones de error}}{69}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Completar tabla LR con las funciones de error}}{70}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Insertar funciones de error}}{71}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Completar tabla Acci\'on con reducciones}}{72}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Barra de men\'us del simulador}}{73}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Men\'u Simulador}}{73}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Barra de herramientas del simulador}}{73}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Panel de visualizaci\'on del simulador ascendente}}{74}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces T\IeC {\'\i }tulo y generador del informe de la simulaci\'on ascendente}}{74}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Gram\'atica de la simulaci\'on ascendente}}{78}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Funciones de error de la simulaci\'on ascendente}}{78}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Tabla LR de la simulaci\'on ascendente}}{79}
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Nueva simulaci\'on del an\'alisis sint\'actico ascendente}}{80}
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Cadena de entrada}}{80}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Botonera de la simulaci\'on}}{80}
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Tabla de la simulaci\'on ascendente}}{81}
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Introducir una cadena de entrada}}{82}
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Modificar una cadena de entrada}}{83}
+\contentsline {figure}{\numberline {6.29}{\ignorespaces Simulaci\'on ascendente correcta}}{89}
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Simulaci\'on ascendente incorrecta}}{89}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Ejemplo de creaci\'on de una nueva gram\'atica}}{92}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Datos de la gram\'atica}}{93}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Vocabulario de la gram\'atica}}{94}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Creaci\'on de los s\IeC {\'\i }mbolos no terminales}}{94}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Creaci\'on de los s\IeC {\'\i }mbolos terminales}}{95}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Creaci\'on del vocabulario}}{96}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Creaci\'on de las producciones de la gram\'atica}}{97}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Crear nuevas producciones}}{97}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Creaci\'on de las producciones}}{98}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Selecci\'on del s\IeC {\'\i }mbolo inicial}}{99}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Visualizaci\'on de la gram\'atica}}{100}
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Validaci\'on de la gram\'atica}}{101}
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Producciones para la simulaci\'on descendente}}{102}
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Conjuntos primero y siguiente}}{103}
+\contentsline {figure}{\numberline {7.15}{\ignorespaces Tabla predictiva}}{104}
+\contentsline {figure}{\numberline {7.16}{\ignorespaces Funciones de error}}{105}
+\contentsline {figure}{\numberline {7.17}{\ignorespaces Nueva funci\'on de error}}{106}
+\contentsline {figure}{\numberline {7.18}{\ignorespaces Lista de funciones de error}}{106}
+\contentsline {figure}{\numberline {7.19}{\ignorespaces Completar tabla predictiva con funciones de error}}{107}
+\contentsline {figure}{\numberline {7.20}{\ignorespaces Panel de la simulaci\'on descendente}}{108}
+\contentsline {figure}{\numberline {7.21}{\ignorespaces Aspecto inicial de simulaci\'on del an\'alisis sint\'actico descendente de una cadena de entrada}}{109}
+\contentsline {figure}{\numberline {7.22}{\ignorespaces Simulaci\'on descendente correcta}}{110}
+\contentsline {figure}{\numberline {7.23}{\ignorespaces Simulaci\'on descendente incorrecta}}{110}
+\contentsline {figure}{\numberline {7.24}{\ignorespaces Selecci\'on del m\'etodo SLR}}{112}
+\contentsline {figure}{\numberline {7.25}{\ignorespaces Conjuntos \textit {Primero} y \textit {Siguiente}}}{113}
+\contentsline {figure}{\numberline {7.26}{\ignorespaces Colecci\'on can\'onica SLR}}{113}
+\contentsline {figure}{\numberline {7.27}{\ignorespaces C\'alculo de la tabla LR}}{114}
+\contentsline {figure}{\numberline {7.28}{\ignorespaces Declaraci\'on de funciones de error}}{114}
+\contentsline {figure}{\numberline {7.29}{\ignorespaces Completar tabla LR}}{115}
+\contentsline {figure}{\numberline {7.30}{\ignorespaces Simulador ascendente SLR}}{116}
+\contentsline {figure}{\numberline {7.31}{\ignorespaces Simulaci\'on ascendente SLR}}{117}
+\contentsline {figure}{\numberline {7.32}{\ignorespaces Selecci\'on del m\'etodo LR-can\'onico}}{118}
+\contentsline {figure}{\numberline {7.33}{\ignorespaces Conjuntos \textit {Primero} y \textit {Siguiente}}}{119}
+\contentsline {figure}{\numberline {7.34}{\ignorespaces Colecci\'on can\'onica LR-can\'onico}}{119}
+\contentsline {figure}{\numberline {7.35}{\ignorespaces C\'alculo de la tabla LR}}{120}
+\contentsline {figure}{\numberline {7.36}{\ignorespaces Simulador ascendente LR-can\'onico}}{121}
+\contentsline {figure}{\numberline {7.37}{\ignorespaces Simulaci\'on ascendente LR-can\'onico}}{122}
+\contentsline {figure}{\numberline {7.38}{\ignorespaces Selecci\'on del m\'etodo LALR}}{123}
+\contentsline {figure}{\numberline {7.39}{\ignorespaces Conjunto Primero y Siguiente}}{124}
+\contentsline {figure}{\numberline {7.40}{\ignorespaces Colecci\'on can\'onica LALR}}{124}
+\contentsline {figure}{\numberline {7.41}{\ignorespaces C\'alculo de la tabla LR}}{125}
+\contentsline {figure}{\numberline {7.42}{\ignorespaces Simulador ascendente LALR}}{126}
+\contentsline {figure}{\numberline {7.43}{\ignorespaces Simulaci\'on ascendente LALR}}{127}

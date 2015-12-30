@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gramatica.xsl"?>
+<grammar>
+	<name>apuntes</name>
+	<description>ejercicio de los apuntes</description>
+	<non-terminal-symbols>
+		<non-terminal>
+			<value>E</value>
+		</non-terminal>
+		<non-terminal>
+			<value>E'</value>
+		</non-terminal>
+		<non-terminal>
+			<value>T</value>
+		</non-terminal>
+		<non-terminal>
+			<value>T'</value>
+		</non-terminal>
+		<non-terminal>
+			<value>F</value>
+		</non-terminal>
+	</non-terminal-symbols>
+	<terminal-symbols>
+		<terminal>
+			<value>(</value>
+		</terminal>
+		<terminal>
+			<value>id</value>
+		</terminal>
+		<terminal>
+			<value>num</value>
+		</terminal>
+		<terminal>
+			<value>+</value>
+		</terminal>
+		<terminal>
+			<value>*</value>
+		</terminal>
+		<terminal>
+			<value>)</value>
+		</terminal>
+	</terminal-symbols>
+	<init-symbol>E</init-symbol>
+	<rule-set>
+		<rule>
+			<value>E → T E' </value>
+		</rule>
+		<rule>
+			<value>E' → + T E' </value>
+		</rule>
+		<rule>
+			<value>E' → ε </value>
+		</rule>
+		<rule>
+			<value>T → F T' </value>
+		</rule>
+		<rule>
+			<value>T' → * F T' </value>
+		</rule>
+		<rule>
+			<value>T' → ε </value>
+		</rule>
+		<rule>
+			<value>F → ( E ) </value>
+		</rule>
+		<rule>
+			<value>F → id </value>
+		</rule>
+		<rule>
+			<value>F → num </value>
+		</rule>
+	</rule-set>
+</grammar>

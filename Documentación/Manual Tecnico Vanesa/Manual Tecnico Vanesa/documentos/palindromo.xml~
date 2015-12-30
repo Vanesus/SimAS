@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gramatica.xsl"?>
+<grammar>
+	<name>palindromo impar</name>
+	<description>Palabras compuestas por a b y c de forma que, la primera parte esta compuesta por aes y bes, y la segunda parte es simetrica respecto de la primera; ademas ambas partes estan separadas por la letra c.
+Por ejemplo: abbcbba.</description>
+	<non-terminal-symbols>
+		<non-terminal>
+			<value>S</value>
+		</non-terminal>
+		<non-terminal>
+			<value>A</value>
+		</non-terminal>
+		<non-terminal>
+			<value>B</value>
+		</non-terminal>
+	</non-terminal-symbols>
+	<terminal-symbols>
+		<terminal>
+			<value>a</value>
+		</terminal>
+		<terminal>
+			<value>b</value>
+		</terminal>
+		<terminal>
+			<value>c</value>
+		</terminal>
+	</terminal-symbols>
+	<init-symbol>S</init-symbol>
+	<rule-set>
+		<rule>
+			<value>S → a A a </value>
+		</rule>
+		<rule>
+			<value>A → a A a </value>
+		</rule>
+		<rule>
+			<value>A → b B b </value>
+		</rule>
+		<rule>
+			<value>B → b B b </value>
+		</rule>
+		<rule>
+			<value>B → c </value>
+		</rule>
+	</rule-set>
+</grammar>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gramatica.xsl"?>
+<grammar>
+	<name>vanesa</name>
+	<description>gonzalez perez</description>
+	<non-terminal-symbols>
+		<non-terminal>
+			<value>a</value>
+		</non-terminal>
+		<non-terminal>
+			<value>s</value>
+		</non-terminal>
+		<non-terminal>
+			<value>d</value>
+		</non-terminal>
+	</non-terminal-symbols>
+	<terminal-symbols>
+		<terminal>
+			<value>(</value>
+		</terminal>
+		<terminal>
+			<value>)</value>
+		</terminal>
+		<terminal>
+			<value>}</value>
+		</terminal>
+		<terminal>
+			<value>=</value>
+		</terminal>
+		<terminal>
+			<value>.</value>
+		</terminal>
+	</terminal-symbols>
+	<init-symbol>s</init-symbol>
+	<rule-set>
+		<rule>
+			<value>a → a d </value>
+		</rule>
+		<rule>
+			<value>a → ( s { </value>
+		</rule>
+		<rule>
+			<value>d → { d </value>
+		</rule>
+		<rule>
+			<value>f → d = </value>
+		</rule>
+	</rule-set>
+</grammar>

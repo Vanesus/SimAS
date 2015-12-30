@@ -1,0 +1,162 @@
+
+\chapter{Restricciones}
+
+\section{Introducción}
+
+En este capítulo se expondrán todas las restricciones, o factores limitativos, existentes en el ámbito del diseño y que condicionan la elección de una u otra alternativa.\\
+
+Los factores limitativos pueden estructurarse en dos grupos:
+
+\begin{itemize}
+
+\item \textbf{Factores iniciales:} son aquellos que no pueden ser modificados durante el transcurso del proyecto, como puede ser el presupuesto económico asignado al proyecto o la duración estimada del mismo.
+
+\item \textbf{Factores estratégicos:} representan variables de diseño que permiten la elección entre diferentes alternativas por parte del desarrollador. En función de la opción escogida, podrá alterarse el proceso de desarrollo y el propio producto final obtenido, con lo que resultará necesario analizar las posibilidades existentes en las primeras etapas del proceso.
+
+\end{itemize}
+
+\section{Factores iniciales}
+
+Las decisiones y aspectos iniciales a tener en cuenta a la hora de comenzar el proyecto son los siguientes:
+
+\begin{itemize}
+
+\item La aplicación debe ser eficiente y robusta.
+
+\item Aplicación Multiplataforma: la aplicación debe ser multiplataforma, esto es, que pueda ser instalado en cualquier sistema operativo, ejecutándose con las mismas prestaciones.
+
+\item Enfoque didáctico: el fin de esta herramienta es puramente didáctico, por lo que debe facilitar la labor de aprendizaje paso a paso al usuario. Para ello, la aplicación contará con:
+	\begin{itemize}
+		\item En el menú de ayuda se explicará cada uno de los métodos de análisis sintáctico.
+		\item El tutorial de la aplicación ayudará al usuario a utilizarla.
+	\end{itemize}
+	
+\item Introducción de datos: debe ser fácil, manejable y cómoda para que el usuario no emplee demasiado tiempo en introducir los datos precisos que se exigen.
+
+\item Interfaz Gráfica: la interfaz debe ser simple y amigable, con el objetivo de facilitar el uso de la aplicación. El simulador incluirá los elementos típicos: menús, submenús, barras de herramientas, barrasd de estado, etc.
+
+\item El simulador deberá realizar una representación fidedigna y fiable de las operaciones o problemas que el usuario desee resolver.
+
+\item Control de eventos: el programa deberá controlar todos los eventos que se produzcan durante la ejecución. Éstos se mostrarán al usuario directamente, junto a un código que identifique el tipo de error cometido.
+
+\item Generación de informes: los usuarios podrán generar informes de las gramáticas creadas así como de las simulaciones. Estos informes se generarán en formato PDF y se podrán imprimir o guardar.
+
+\end{itemize}
+
+Esta información será ampliada en el \textit{Capítulo 6: Especificación de requisitos}.
+
+\section{Factores estratégicos}
+
+En este apartado, se mostrarán las decisiones estratégicas tomadas por el desarrollador para llevar a cabo el proyecto:
+
+\begin{itemize}
+
+\item Metodología de desarrollo.
+\item Elección del lenguaje de programación.
+\item Elección del entorno de desarrollo.
+\item Desarrollo de la interfaz gráfica de la aplicación.
+\item Elección del Sistema Operativo para la implementación.
+\item Representación de las gramáticas de contexto libre.
+\item Representación de los informes de gramáticas y de simulación.
+\item Implementación de la ayuda.
+\item Implementación del tutorial.
+
+\end{itemize}
+
+\subsection{Metodología de desarrollo}
+
+Actualmente existen varias metodologías para el desarrollo de proyectos, como pueden ser:
+
+\begin{itemize}
+ \item \textbf{Ciclo de vida clásico o en cascada}: este modelo es el
+    modelo clásico de desarrollo software por cascada. El modelo, ya en desuso, consiste en 
+    llevar a cabo un desarrollo lineal del proyecto, de forma tal que 
+    para pasar a la siguiente fase debe de haber terminado y estar 
+    validada la anterior. 
+
+ \item \textbf{Metodología OMT (\textit{Object Modeling Technique})}:
+    aunque puede ser utilizado para cualquier desarrollo de software,
+    ha quedado en desuso y ha sido reemplazado por UML.
+
+ \item \textbf{Notación UML (\textit{Unified Modelling Language})}:
+    el lenguaje de modelado unificado, o UML, es el más adecuado para el desarrollo
+    de este proyecto, puesto que presenta orientación a objetos, un lenguaje de modelado
+    y técnicas que facilitan la extracción de requisitos. Además, permite
+    ser fácilmente traducido a un lenguaje de alto nivel orientado a
+    objetos (como C++, Java, Python, etcétera). Este lenguaje unifica
+    las técnicas de Booch, Jacobson y Rumbaugh (OMT).
+\end{itemize}
+
+Finalmente, se ha optado por utilizar \textbf{UML}, debido a que es el lenguaje gráfico de modelado de sistemas software más conocido y utilizado en la actualidad. Se trata de un lenguaje de modelado que ofrece una alta capacidad de representación en los lenguajes de alto nivel orientados a objetos que existen en
+la actualidad.
+
+
+\subsection{Elección del lenguaje de programación}
+
+Es bien sabido que en la actualidad existen múltiples lenguajes de programación que ofrecen grandes prestaciones para realizar aplicaciones de escritorio, como por ejemplo:
+
+\begin{itemize}
+\item \textbf{C++:} es un lenguaje multiparadigma y orientado a
+   objetos, que añade programación genérica e interfaces gráficas de usuario. Este lenguaje tiene la desventaja de que los programas deben ser compilados para la máquina en la que se van a ejecutar,  además de tener que depender de librerías externas para poder representar las interfaces.
+   
+  \item \textbf{Python:} es un lenguaje interpretado y multiparadigma. Su principal característica es que es un lenguaje con una sintaxis muy limpia y que favorece un código legible. En cambio, pueden 
+   existir problemas de compatibilidad entre las plataformas Windows y Linux en ciertos aspectos, además de depender de librerías o lenguajes de programación externos.
+   
+   \item \textbf{Java:} este lenguaje es orientado a objetos, proporciona mecanismos propios para la construcción de interfaces y además es multiplataforma, debido a la Máquina Virtual de Java. Ésta se abstrae de la arquitectura de hardware del computador y ejecuta el programa siempre de la misma forma sin importar el sistema operativo que se utilice. 
+\end{itemize}
+
+Tras comparar todas las opciones expuestas anteriormente, se ha decidido que la mejor opción para desarrollar este proyecto es utilizar el \textbf{lenguaje de programación Java}. La razón principal es debido a su potente Máquina Virtual que permite la portabilidad.
+
+
+\subsection{Elección del entorno de desarrollo}
+
+Después de elegir el lenguaje de programación Java para el desarrollo del proyecto, se presentan dos posibles entornos para llevarlo a cabo: NetBeans y Eclipse. Estas dos opciones son bastante competentes, sin embargo, se ha decidido utilizar NetBeans debido a que incluye componentes para la creación de interfaces gráficas con Swing, lo que facilitará la labor de la creación de la interfaz de la aplicación software.\\
+
+El entorno \textbf{NetBeans} se presenta como un entorno multiplataforma de código abierto, el cual integra un editor de texto avanzado y un intérprete propio del lenguaje Java. Este programa pone a disposición de los programadores varias características que ayudan al desarrollo de sistemas informáticos:
+
+
+\begin{itemize}
+
+\item Resaltado de elementos del código fuente.
+\item Gestión de paquetes de código fuente.
+\item Control de errores sintácticos y semánticos.
+\item Entorno de depuración de la aplicación.
+\item Editores de interfaces gráficas.
+\item Plugins de creación de ficheros .jar (ejecutables).
+
+\end{itemize}
+
+
+\subsection{Desarrollo de la interfaz gráfica de la aplicación}
+
+Para el desarrollo de la interfaz gráfica de la aplicación existen varias interfaces de programación, como puede ser \textit{AWT} y \textit{Swing}. 
+
+Se ha decidido utilizar el paquete de interfaces gráficas de \textbf{Java} \textit{\textbf{javax.swing}}, el cual ofrece un conjunto de componentes escritos en Java con más y mejores funcionalidades, con la independencia de plataforma que propone la tecnología Java. Se podrán crear interfaces gráficas con los siguientes componentes: botones, ventanas, cuadros de texto, tablas, ... Este paquete permite crear interfaces gráficas de forma sencilla y con un acabado profesional, permitiendo en todo momento la personalización de cada uno de los componentes que lo integran.
+
+\subsection{Elección del sistema operativo para la implementación}
+
+Aunque la implementación del proyecto se va a llevar a cabo mediante el lenguaje Java, el cual es totalmente portable, se ha elegido para su desarrollo el sistema operativo \textbf{Ubuntu 12.10}. Aún así, la aplicación se irá probando simultáneamente durante su desarrollo en el sistema operativo Windows 7 bajo la misma máquina virtual de Java.
+
+\subsection{Representación de las gramáticas de contexto libre}
+
+Para almacenar la información de las gramáticas de contexto libre creadas por el usuario, existen varias opciones como por ejemplo: ficheros de texto plano, ficheros binarios, ficheros XML, ...\\
+
+De entre estas posibilidades, se ha elegido el \textbf{lenguaje XML} debido a que permite definir un formato concreto para almacenar los datos de forma segura, cumpliéndose además que éstos puedan ser visualizados por el usuario y recuperados por el programa, siempre y cuando se siga el mismo formato de los datos. Con esto, será mucho más fácil poder controlar todos los errores que se produzcan en el mismo.
+
+\subsection{Generación de informes de gramáticas y de simulación}
+
+Para cada gramática creada con la aplicación, se podrá generar un informe de la gramática, el cual contendrá toda la información sobre la misma. Tras la realización de una simulación, se le dará la opción al usuario de generar informes con los resultados de la simulación, incluyendo todos los diagramas que se hayan generado.
+
+Las alternativas para la generación de informes son las siguientes: fichero de texto plano, PDF, ... Se ha decidido que los informes se generarán en formato \textbf{PDF}, de esta forma no se podrá modificar el contenido del mismo.
+
+\subsection{Implementación de la ayuda}
+
+La implementación de la ayuda del programa se podrá llevar a cabo mediante un fichero de texto, un documento PDF o una página web en cualquier lenguaje de programación.
+
+Ésta se realizará mediante una \textbf{página Web desarrollada en lenguaje HTML}. Esta elección se ha llevado a cabo debido a la capacidad que tiene Java de integrar código fuente de otros lenguajes. Por esto, es muy sencillo incorporar páginas Web escritas en HTML dentro de componentes de la interfaz de Java. De esta forma, se pretende crear la ayuda en formato de páginas Web, para que sea cargada por componentes de la interfaz y el usuario navegue por dichas páginas. 
+
+\subsection{Implementación del tutorial}
+
+El tutorial se realizará en formato \textbf{PDF} y se proporcionará junto con la aplicación. Este explicará los conceptos teóricos del análisis sintáctico, junto con ejercicios prácticos para afianzar los conceptos.\\
+
+El hecho de estar realizado en PDF permite futuras modificaciones, ampliaciones o correcciones del tutorial.

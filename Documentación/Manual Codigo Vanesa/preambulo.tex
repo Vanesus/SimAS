@@ -1,0 +1,153 @@
+
+
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{float}
+\usepackage{colortbl}	% Coloreado de columnas de tablas
+\usepackage[cmyk]{xcolor}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{pdfpages}
+\usepackage[latin1]{inputenc}
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+%\lstset{
+%  basicstyle=\ttfamily,
+%  columns=fullflexible,
+%  showstringspaces=false,
+%  commentstyle=\color{gray}\upshape
+%}
+
+\lstset{ %
+language=Java,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+\author{Vanesa Gonz�lez P�rez}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand{\arraystretch}{1.5} % alto de la tabla
+
+
+\newcommand{\Dflecha}{\mathop{\Rightarrow}\limits}
+\newcommand{\ldflecha}{\mathop{\longrightarrow}\limits}
+
+
+%CONTROLA LOS MARGENES DEL TEXTO
+% margen {izquierda}{derecha}{arriba}{abajo}
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2.5cm}{2.5cm}
+
+%\headheight = 11pt
+%\topmargin=-0.68cm % Controla la altura
+\headsep=0.7cm % margen de separación entre la cabecera y el texto
+
+\setlength{\parindent}{7mm}%sangria la primera linea
+
+%Para conseguir que en las páginas en blanco no ponga cabeceras
+\makeatletter
+\def\clearpage{%
+  \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+      \ifdim \pagetotal <\topskip
+        \hbox{}
+      \fi
+    \fi
+  \fi
+  \newpage
+  \thispagestyle{empty}
+  \write\m@ne{}
+  \vbox{}
+  \penalty -\@Mi
+}
+
+%  FORMATO ENCABEZADO
+%==========================================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} %borra los ajustes del encabezado
+\fancyhead[LO]{\leftmark} % En las páginas impares, parte izquierda del encabezado, aparecerá el nombre de capítulo
+\fancyhead[RE]{\rightmark} % En las páginas pares, parte derecha del encabezado, aparecerá el nombre de sección
+\fancyhead[RO,LE]{\thepage} % Números de página en las esquinas de los encabezados
+
+%  NOTAS AL PIE DE PÁGINA
+%==========================================
+
+\footnotesep=0pt  %Separación de las líneas en las notas a pie de página
+\newcommand{\newfootnote}[1]{\footnote{\hspace*{2mm}#1}}%Nueva nota de pie de página.
+\renewcommand{\baselinestretch}{1}%Ancho de separación entre líneas dentro de un párrafo
+\footskip = 30cm
+\usepackage[marginal,flushmargin,norule]{footmisc} %paquete para controlar las notas de pie de página
+\setlength\footnotemargin{1.8em} %Margen de la nota de pie de página
+\setlength{\skip\footins}{8mm}%Separación entre el texto principal y las notas pie de pagina
+\setlength{\parskip}{15pt}
+
+%DEFINICIÓN DE ÓRDENES
+\def\href#1#2{ #1 (#2)}
+\def\url#1{#1}
+\def\xmlsch{\textit{XML Schema }}
+\def\xmlschf{\textit{XML Schema}}
+\def\latex{\textit{Latex}}
+\def\tex{\textit{Tex}}
+\def\winedt{\textit{WinEdt}}
+
+% Profundidad de la tabla de contenido.
+\setcounter{tocdepth}{3} % nivel de sección y subsección, etc.
+\setcounter{secnumdepth}{3}
+
+% Se declaran las extensiones de los gr�ficos. Por defecto, .eps.
+\DeclareGraphicsExtensions{.eps}
+
+% Declaracion de colores
+\definecolor{verdeOscuro}{rgb}{0,0.5,0}
+\definecolor{naranjaOscuro}{rgb}{0.5,0.25,0}
+
+
+\colorlet{verde-oscuro}{green!20!black}
+\colorlet{verde-oscuro1}{green!50!green}
+\colorlet{verde}{green!50!black}
+
+\colorlet{marron-oscuro}{brown!20!black}
+\colorlet{marron}{brown!50!black}
+
+\colorlet{amarillo-claro}{yellow!50!white}
+
+\colorlet{rosa}{red!50!white}
+

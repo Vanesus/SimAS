@@ -1,0 +1,80 @@
+
+\chapter{Instalación y desinstalación del programa}
+
+\section{Requisitos}
+
+En esta sección se detallan los requisitos necesarios para poder ejecutar
+SimAS en un ordenador. Estos requisitos se clasifican en:
+
+\begin{itemize}
+ \item \textit{Requisitos de hardware}.
+ \item \textit{Requisitos de software}.
+\end{itemize}
+
+Ambos requisitos vienen determinados por los requisitos de la máquina virtual
+de Java [3], la cual es multiplataforma (consúltese la referencia bibliográfica
+para conocer los requisitos \textit{hardware} y \textit{software}, adaptados a la última versión
+disponible de la máquina virtual).
+
+
+\section{Ficheros de instalación}
+
+La aplicación SimAS se suministra en un fichero autoejecutable de java (.jar), junto
+con las librerías necesarias y ficheros de ejemplo organizadas en carpetas. Este
+programa carece de un auto-instalador, esto hace que el proceso de instalación
+ y desins\-ta\-la\-ción sea muy simple.
+
+\subsection{Instalación}
+
+Al estar compactado en un fichero autoejecutable .jar, la instalación de este programa
+consiste en copiar la carpeta \textbf{SimAS}, donde se encuentra el ejecutable y todas las subcarpetas auxiliares, en un directorio en su máquina.
+
+\textbf{SimAS}, por su parte, no guarda ningún fichero de configuración o de librerías
+en su máquina, por lo que no habrá que preocuparse más que de copiar la carpeta
+mencionada y ya estará listo para utilizar el programa.
+
+Debe tener en cuenta que no deberá borrar, bajo ningún concepto, ninguna de las carpetas
+que se suministran con el ejecutable, puesto que la aplicación dejaría de funcionar correctamente.
+
+\subsection{Desinstalación}
+
+Para desinstalar la aplicación, lo único que debe hacer es borrar la carpeta SimAS de su equipo 
+y ya habrá desinstalado la aplicación. Al no instalar o guardar ningún fichero de comunicación, 
+claves de registro, etcétera, con esto habrá borrado por completo la aplicación.
+
+\section{Estructura del programa ejecutable}
+
+La aplicación SimAS se distribuye ya comprimida en formato autoejecutable
+de java (.jar). Aún así, la aplicación tiene ciertas dependencias y ficheros
+complementarios que se suministran almacenados en carpetas junto con la aplicación.
+Toda la aplicación, junto con los complementos, se proporciona en una carpeta
+denominada \textbf{SimAS}.
+
+Esta carpeta contiene los siguientes ficheros y directorios:
+\medskip
+
+\begin{itemize}
+ \item \textbf{Fichero SimAS.jar}: fichero ejecutable del programa SimAS. 
+ \item \textbf{Directorio lib}: contiene librerías necesarias para el funcionamiento de la aplicación.
+ \item \textbf{Directorio ejemplos}: contiene gramáticas de ejemplo para ser utilizadas con SimAS.
+ %\item \textbf{Directorio tutorial}: contiene un documento PDF con el tutorial de la aplicación.
+\end{itemize}
+
+Es importante resaltar el hecho de que si se borra la carpeta de las librerías,
+el programa dejará de funcionar correctamente. 
+
+\section{Ejecución de SimAS}
+
+Para ejecutar SimAS, asegúrese primero de que tiene instalada una de las últimas versiones de la máquina virtual de java. Para esto, puede descargar la versión \textbf{JRE} (de solo ejecución) o el 
+\textbf{JDK} completo (el kit de desarrollo) de la página web de Oracle [3] y seguir
+las instrucciones de instalación que allí se exponen.
+
+Una vez instalada la máquina virtual de Java, o si ya está instalada previamente,
+lo único que deberá hacer para ejecutar la aplicación es situarse en la carpeta SimAS
+y hacer clic derecho sobre el fichero \textbf{SimAS.jar}.
+
+Al hacerlo, aparecerá el menú emergente típico del botón derecho del ratón, pero
+en este caso, aparecerá una opción de ejecutar el programa en la máquina virtual de java.
+Tras pulsar esa opción, se iniciará la aplicación.
+
+Otra forma de poder ejecutar la aplicación es haciendo uso de la línea de comandos: \textbf{java -jar SimAS.jar}.

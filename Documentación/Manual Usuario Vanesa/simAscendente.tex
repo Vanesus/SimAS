@@ -1,0 +1,456 @@
+\chapter{Simulación Ascendente}
+
+\section{Introducción}
+	En esta sección se analizará en detalle la parte del analizador del análisis sintáctico ascendente. Para acceder a esta parte de SimAS, se puede hacer desde la ventana del Editor, tanto desde la barra de herramientas o desde el menú \textit{Simulador}. Es necesario que la gramática creada o cargada en el editor esté validada. 
+	
+\section{Asistente de nueva simulación ascendente}
+
+	Para lanzar el asistente de la simulación del análisis ascendente sobre una gramática, se hace desde la pantalla del editor de SimAS, siempre y cuando haya una gramática válida. Este asistente tiene el mismo formato del asistente de la gramática.
+   
+El asistente está compuesto por cinco pasos:
+
+\begin{enumerate}
+ \item \textbf{Paso 1.} Selección del método de simulación.
+ \item \textbf{Paso 2.} Conjuntos primero y siguiente.
+ \item \textbf{Paso 3.} Construcción de la colección canónica.
+ \item \textbf{Paso 4.} Construcción de la tabla LR.
+ \item \textbf{Paso 5.} Creación de las funciones de error.
+ \item \textbf{Paso 5.1.} Completar la tabla con las funciones de error.
+\end{enumerate}
+
+
+\subsection{Paso 1. Selección del método de simulación ascendente}
+
+ En el primer paso del asistente, se selecciona, desde una lista desplegable, el método de simulación del análisis sintáctico ascendente: SLR, LR-canónico y LALR.
+ \medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.5\textwidth]{img/editor23.png}
+      \caption{Selección del método de simulación ascendente}
+    \end{center}
+  \end{figure}
+
+\subsection{Paso 2. Conjuntos primero y siguiente}
+
+    En este paso del asistente se construyen los conjuntos \textit{primero} y \textit{siguiente} y se muestran en una tabla. Este paso no requiere de ninguna interacción por parte del usuario, porque se limita a la visualizar los conjuntos creados.
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.5\textwidth]{img/editor24.png}
+      \caption{Conjuntos primero y siguiente}
+    \end{center}
+  \end{figure} 
+
+\subsection{Paso 3. Construcción de la colección canónica}
+
+     En este paso del asistente se construye la colección canónica (la correspondiente para el método escogido en el paso 1) y se muestra en una tabla. Este paso no requiere de ninguna interacción por parte del usuario, porque es una visualización de la colección canónica. 
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.6\textwidth]{img/editor25.png}
+      \caption{Construcción de la colección canónica}
+    \end{center}
+  \end{figure} 
+
+\subsection{Paso 4. Construcción de la tabla LR}
+
+    En este paso del asistente se construye la tabla LR (la correspondiente para el método escogido en el paso 1) y se muestra en una tabla. Este paso no requiere de ninguna interacción por parte del usuario, porque es una visualización de la tabla LR obtenida. 
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.6\textwidth]{img/editor26.png}
+      \caption{Construcción de la tabla LR}
+    \end{center}
+  \end{figure} 
+
+\subsection{Paso 5. Creación de las funciones de error}
+
+	En este paso del asistente se definen las funciones de tratamiento de error, que serán usadas para completar la tabla LR. Esta declaración no es obligatoria, así que puede finalizar el asistente sin definir ninguna función de error. En la figura \ref{fig:simulador8} se muestra el aspecto inicial de esta ventana sin la definición de funciones de error y en la figura \ref{fig:simulador87} si existe declaración.
+\medskip
+  
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.6\textwidth]{img/editor29.png}
+      \caption{Aspecto inicial de la pantalla de creación de las funciones de error}
+      \label{fig:simulador8}
+    \end{center}
+  \end{figure} 
+  
+    \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.6\textwidth]{img/editor27.png}
+      \caption{Pantalla de creación de las funciones de error}
+      \label{fig:simulador87}
+    \end{center}
+  \end{figure} 
+
+En esta ventana se pueden realizar las siguientes acciones:
+\medskip
+
+\begin{itemize}
+ \item \textbf{Insertar una función de error}: inserta una función de error en la lista. Esta acción muestra una ventana para insertar la nueva función de error. En la ventana deberá introducir el identificador de la función, 
+seleccionar la acción a realizar y asignar un mensaje a la función. No se permite que dos funciones tengan el mismo número de identificador.
+      
+ \item \textbf{Borrar una función de error}: borra la función de error seleccionada.
+ 
+ \item \textbf{No definir funciones de error}: se da la opción de no crear ninguna función de error.
+
+\end{itemize}
+
+\subsubsection{Nueva función de error}
+	Para crear una función de error, se debe acceder desde el paso número 5 del asistente de la simulación, pulsando el botón \textit{Nueva Función Error}. Al hacer esto se abrirá una nueva ventana donde se irán generando una a una cada función. 
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.65\textwidth]{img/editor30.png}
+      \caption{Creación de una función de error}
+      \label{fig:editor30}
+    \end{center}
+  \end{figure} 
+  
+  Como se puede ver en la figura \ref{fig:editor30}, para crear una función de error, hay que definir los siguientes datos:
+  
+  \begin{itemize}
+  \item \textbf{Identificador}: número identificativo de cada función de error. Este número no se puede repetir.
+  	\medskip
+  	
+  	  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.5\textwidth]{img/editor31.jpg}
+      \caption{Error en el identificador de función de error}
+    \end{center}
+  \end{figure} 
+  \medskip
+  
+  \item \textbf{Acción}: tipo de acción a realizar con la función de error. En la figura \ref{fig:editor32} se puede ver la lista desplegable con las acciones que se pueden realizar.
+    	\medskip
+    	
+  	  	\begin{figure}[H]
+    			\begin{center} 
+      		 \includegraphics[width=0.6\textwidth]{img/editor32.png}
+      		 \caption{Acciones de las funciones de error}
+      		 \label{fig:editor32}
+    			\end{center}
+  		\end{figure} 
+    	\medskip
+    	
+    	\item \textbf{Símbolo}: en algunas de las acciones a realizar por las funciones de error se tiene que seleccionar un símbolo de los definidos en los símbolos terminales de la gramática. Este menú desplegable se activará o desactivará en función de la acción seleccionada.
+    	
+    	\item \textbf{Mensaje}: texto explicativo de la función de error.
+    	
+  
+  \end{itemize}
+  
+Una vez se haya definido la función de error, se pulsa sobre el botón \textit{Aceptar} y ésta se incluirá en la lista de las funciones del paso número 5 del asistente de la simulación.
+
+\subsubsection{Borrar una función de error}
+
+	Una vez que se haya definido una función de error, esta se podrá eliminar desde el paso número 5 del asistente de simulación. Se debe seleccionar la función que se desee eliminar en la lista haciendo clic con el ratón. Al hacer esto, se activará el botón de \textit{Eliminar Función Error} y pulsando sobre él desaparecerá la función seleccionada de la lista.
+	\medskip
+	
+	  	\begin{figure}[H]
+    			\begin{center} 
+      		 \includegraphics[width=0.6\textwidth]{img/editor33.png}
+      		 \caption{Borrar función de error}
+    			\end{center}
+  		\end{figure} 
+  		
+  		
+\subsubsection{No definir funciones de error}  
+
+	Si no se desea definir ninguna función de error para la simulación, desde el paso número 5 del asistente de la simulación podrá seleccionar esta opción pulsando sobre la casilla \textit{No utilizar funciones de error}.
+	\begin{figure}[H]
+    			\begin{center} 
+      		 \includegraphics[width=0.6\textwidth]{img/editor34.png}
+      		 \caption{No utilizar funciones de error}
+    			\end{center}
+  		\end{figure} 
+    
+	
+	\subsection{Paso 5.1. Completar la tabla con las funciones de error}
+
+     En este paso del asistente se rellenan las celdas vacías de la parte Acción de la tabla LR con las funciones de error  generadas en el paso anterior. Por otro lado, este paso solamente es accesible si han declarado previamente funciones de error en la simulación.
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.55\textwidth]{img/asc1.png}
+      \caption{Completar tabla LR con las funciones de error}
+      \label{fig:simulador12}
+    \end{center}
+  \end{figure} 
+  
+  En este panel se pueden llevar a cabo las siguientes acciones:
+  
+  \begin{itemize}
+  	\item \textbf{Insertar una función de error en la tabla}: la principal finalidad de este paso es completar la parte Acción de la tabla LR con las funciones de error. Para ello se selecciona, en el menú desplegable de la parte superior, la función de error que se quiera insertar. Posteriormente, se hace clic con el ratón en los huecos libres de la tabla y se irán incluyendo. Para insertar otra función distinta, basta con seleccionarla en el desplegable y volver a hacer clic sobre la tabla.
+  		\medskip
+  		
+    	\begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.55\textwidth]{img/asc3.png}
+      \caption{Insertar funciones de error}
+    \end{center}
+  \end{figure} 
+  	
+  	\item \textbf{Eliminar una función de error en la tabla}: si por error se inserta en la tabla una función de error, ésta se puede eliminar. Basta con seleccionar la función errónea en la tabla y pulsar sobre el botón \textit{Eliminar Función de error}. 
+  	
+  	\item \textbf{Completar la tabla con reducciones}: si se desea, se puede completar la tabla acción con reducciones, esto es, si una de las filas contiene al menos una reducción se completa el resto de la fila con esa misma reducción. Para diferenciarlas de las reducciones originales, se mostrarán en otro color y con el símbolo \* al final.
+  	\medskip
+  	
+  	\begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.55\textwidth]{img/asc5.png}
+      \caption{Completar tabla Acción con reducciones}
+      \label{fig:reducciones}
+    \end{center}
+  \end{figure} 
+  	
+  	\item \textbf{Eliminar reducciones}: si se ha pulsado sobre el botón \textit{Completar con reducciones}, el nombre del botón se cambiará a \textit{Eliminar Reducciones} como se puede ver en la figura \ref{fig:reducciones}. Este botón elimina de la tabla las reducciones que se introdujeron en el paso anterior.
+  \end{itemize}
+  
+  
+\section{Interfaz del simulador Ascendente}  
+
+	Una vez se pulse sobre el botón \textit{Finalizar} del asistente de la simulación ascendente, si no se ha producido ningún error, se mostrarán todos los datos calculados en cada uno de los pasos del asistente en la ventana del Simulador. A continuación, se explicarán cada uno de los datos que aparecen en esta ventana.
+	
+\subsection{Barra de menús del Simulador Ascendente}	
+
+     El simulador de gramáticas posee una barra de menús que recoge toda la fun\-cio\-na\-li\-dad del simulador. Esta barra de menús es la que se muestra en la figura \ref{fig:simulador21}.
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.15\textwidth]{img/editor35.jpg}
+      \caption{Barra de menús del simulador}
+      \label{fig:simulador21}
+    \end{center}
+  \end{figure}
+
+    La barra de menús posee los siguientes menús:
+    
+    \begin{enumerate}
+ \item \textbf{Menú Simulador}: agrupa las acciones principales del simulador.
+      \begin{itemize}
+       \item \textbf{Nueva simulación}: lanza el asistente para creación de una nueva simulación.
+       \item \textbf{Salir}: cierra la aplicación.
+      \end{itemize}
+      \begin{figure}[H]
+	\begin{center} 
+	  \includegraphics[width=0.2\textwidth]{img/editor37.jpg}
+	  \caption{Menú Simulador}	  
+	\end{center}
+      \end{figure}
+
+\item \textbf{Menú Ayuda}: contiene los menús de la ayuda.
+      
+\end{enumerate}
+
+\subsection{Barra de herramientas del simulador}
+
+     La barra de herramientas del simulador contiene los accesos directos a todas las acciones posibles a realizar en él.
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.2\textwidth]{img/editor36.jpg}
+      \caption{Barra de herramientas del simulador}
+      \label{fig:simulador24}
+    \end{center}
+  \end{figure}
+
+A diferencia del editor de gramáticas de SimAS, esta barra de menús tiene muchas menos opciones. Contiene la acción de Simular la gramática cargada y la de salir de la aplicación.
+
+\subsection{Panel de visualización del simulador ascendente}
+
+	Una vez finalice el asistente de la simulación de la gramática, se muestra una ventana donde se pueden visualizar todos los componentes necesarios para la simulación ascendente. En la figura \ref{fig:simulador1} se puede ver un ejemplo de este panel.
+\medskip
+
+  \begin{figure}[H]
+    \begin{center} 
+      \includegraphics[width=0.7\textwidth]{img/ascendente1.png}
+      \caption{Panel de visualización del simulador ascendente}
+      \label{fig:simulador1}
+    \end{center}
+  \end{figure}
+
+    El panel de visualización se divide en cuatro partes:
+    
+    \begin{itemize}
+    		\item \textbf{Título y generador del informe}: en la parte superior del panel se muestra el nombre del método de la simulación ascendente que se está realizando, SLR, LR-canónico o LALR. Además, pulsando sobre el botón que se encuentra justo al lado \textit{Generar Informe}, se puede obtener el informe de la simulación  ascendente.
+         
+         \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.5\textwidth]{img/ascendente5.png}
+      			\caption{Título y generador del informe de la simulación ascendente}      
+    			\end{center}
+  		\end{figure}
+  		
+  		El informe de la simulación generado en este paso tiene la siguiente forma:
+  		
+  		 \includepdf[pages=1-3]{documentos/informeSimulacionAsc1.pdf}
+    		
+    		
+    		\item \textbf{Gramática}: se muestra la gramática sobre la que se está realizando la simulación sintáctica ascendente.
+    		
+         \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.4\textwidth]{img/ascendente2.png}
+      			\caption{Gramática de la simulación ascendente}      
+    			\end{center}
+  		\end{figure} 
+  		
+  		\item \textbf{Funciones de error}: contiene las funciones de error que se crearon en el paso 5 del asistente de la simulación.
+  		
+         \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.45\textwidth]{img/ascendente3.png}
+      			\caption{Funciones de error de la simulación ascendente}      
+    			\end{center}
+  		\end{figure}   
+  		
+  		\item \textbf{Tabla LR}:	en la parte inferior de la ventana se encuentra la parte \textit{Acción} y la parte \textit{Ir\_a} de la tabla LR calculada para la simulación ascendente de la gramática. Debajo de esta tabla hay un botón, \textit{Modificar funciones de error}, que si se pulsa sobre él se abrirá el asistente de la simulación en el paso 5 para poder modificar o crear nuevas funciones de error y completar la tabla LR con ellas.
+  		
+         \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.6\textwidth]{img/ascendente4.png}
+      			\caption{Tabla LR de la simulación ascendente}      
+    			\end{center}
+  		\end{figure}     		
+  		  			    		    		
+    \end{itemize}
+   
+   
+    
+\section{Simulación de análisis sintáctico ascendente}
+
+	Después de todos los pasos estudiados anteriormente, ya sólo falta realizar la simulación de una cadena de entrada. En esta sección se mostrarán todas las opciones para realizar una nueva simulación.
+	
+	\subsection{Nueva simulación de análisis sintáctico ascendente}
+	
+		Para lanzar una nueva simulación de análisis sintáctico ascendente de una gramática, se accede al menú \textit{Simulador} y se pulsa sobre la acción \textit{Nueva Simulación}. También se puede lanzar la simulación mediante el botón \textit{Simular} de la barra de herramientas. En la figura \ref{fig:ascendente6} se muestra el aspecto inicial de este panel.
+\medskip
+         \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.6\textwidth]{img/ascendente6.png}
+      			\caption{Nueva simulación del análisis sintáctico ascendente}  
+      			\label{fig:ascendente6}    
+    			\end{center}
+  		\end{figure}   
+  		
+  		Este panel se divide en tres partes:
+  		
+  		\begin{itemize}
+  			\item \textbf{Cadena de entrada}: muestra la cadena de entrada sobre la cual se va a realizar la simulación ascendente.
+  			
+  		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.35\textwidth]{img/ascendente8.png}
+      			\caption{Cadena de entrada}  
+    			\end{center}
+  		\end{figure} 
+  		
+  			\item \textbf{Botonera}: botones de avance y retroceso en la simulación ascendente. Cabe destacar que estos botones tienen el mismo formato que los utilizados tanto en el asistente de la gramática como en el asistente de la simulación.
+
+  		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.4\textwidth]{img/ascendente9.png}
+      			\caption{Botonera de la simulación}  
+    			\end{center}
+  		\end{figure}   			
+  			
+  			\item \textbf{Tabla de la simulación ascendente}: se muestra en la tabla cada uno de los pasos de la simulación ascendente.
+  			
+  		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.4\textwidth]{img/ascendente10.png}
+      			\caption{Tabla de la simulación ascendente}  
+    			\end{center}
+  		\end{figure}   			
+  			
+  		\end{itemize}
+    
+	Desde el panel de una nueva simulación sintáctica ascendente se pueden realizar las siguientes acciones:
+	
+	\begin{itemize}
+		\item \textbf{Introducir o modificar la cadena de entrada}.
+		\item \textbf{Moverse sobre la simulación}.
+		\item \textbf{Informe de la simulación ascendente}.				
+	\end{itemize}
+	
+	\subsubsection{Introducir o modificar la cadena de entrada}
+	
+	La cadena de entrada está compuesta de uno o varios de los símbolos terminales definidos en la gramática. Para introducir una nueva cadena de entrada para simularla, se debe pulsar sobre el botón \textit{Editar}. Se abrirá una nueva ventana, donde aparecerá un campo de texto y una lista con los símbolos terminales. Pulsando sobre el símbolo deseado, se introducirá en el campo de texto. Si por error se introduce un símbolo erróneo, se puede eliminar pulsando sobre el botón \textit{Borrar}.
+	\medskip
+	  		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.5\textwidth]{img/ascendente7.png}
+      			\caption{Introducir una cadena de entrada}  
+    			\end{center}
+  		\end{figure}  
+  		
+  	Para modificar una cadena de entrada creada con anterioridad, se debe proceder de forma muy parecida. Se pulsa sobre el botón \textit{Editar} y en la ventana que se abre, se deben borrar los símbolos que ya no vayan a formar parte de la cadena de entrada y se introducen los nuevos. Al pulsar sobre el botón \textit{Aceptar}, se cargará en el campo de texto \textit{Cadena de entrada} la que se ha definido.
+  	\medskip
+  	
+	    \begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.5\textwidth]{img/ascendente11.png}
+      			\caption{Modificar una cadena de entrada}  
+    			\end{center}
+  		\end{figure}    	
+  		
+  		
+  	\subsubsection{Moverse por la simulación}
+  	
+  	Una vez esté definida la cadena de entrada, se podrá mover por la simulación con los botones que se encuentran en la parte media de la pantalla.
+  	
+  	\includegraphics[width=0.04\textwidth]{img/siguiente.png} \textbf{Avance simple}: avanza paso a paso en la simulación.
+\medskip
+
+  	\includegraphics[width=0.04\textwidth]{img/anterior.png} \textbf{Retroceso simple}: retrocede paso a paso en la simulación.
+  	\medskip
+  	
+  	\includegraphics[width=0.04\textwidth]{img/ultimo.png} \textbf{Avance completo}: avanza hasta el último paso de la simulación.
+  	\medskip
+  	
+  \includegraphics[width=0.04\textwidth]{img/primero.png} \textbf{Retroceso completo}: retrocede hasta el primer paso de la simulación.
+\medskip
+
+
+  		
+  	\subsubsection{Informe de la simulación ascendente}
+  	
+  	El informe de la simulación se podrá crear en el momento en el que se haya creado una cadena de entrada. En la sección anterior se mostró un informe de la simulación, la diferencia entre ambos es que en este se incluye la cadena de entrada y la tabla de la simulación.
+  	
+  	  		 \includepdf[pages=1-4]{documentos/informeSimulacionAsc.pdf}
+
+	
+	\subsection{Resultados de la simulación ascendente}
+
+	Una vez se haya ejecutado la simulación completamente, se rellenará la tabla de análisis; la cual está compuesta por tres partes: pila, entrada y acción. Si la simulación ha sido correcta, la última línea de análisis contendrá la palabra \textit{ACEPTAR} escrita en verde en la parte de acción, tal y como se muestra en la figura \ref{fig:ascendente12}.	
+	\medskip
+	
+		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.4\textwidth]{img/ascendente12.png}
+      			\caption{Simulación ascendente correcta}  
+      			\label{fig:ascendente12}
+    			\end{center}
+  		\end{figure} 
+  		
+  	Si durante la simulación se consulta una celda vacía en la parte \textit{acción} o se ejecuta una función de error, se mostrará la palabra \textit{Error} en la parte acción o bien el resultado de ejecutar la función de error en color rojo.
+  	\medskip
+  	
+		\begin{figure}[H]
+            \begin{center} 
+      			\includegraphics[width=0.4\textwidth]{img/ascendente13.png}
+      			\caption{Simulación ascendente incorrecta}  
+    			\end{center}
+  		\end{figure}   	
+  	
+  	
+	

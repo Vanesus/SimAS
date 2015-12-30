@@ -1,0 +1,240 @@
+
+\chapter{Diagramas de secuencia}
+
+En este capítulo se realizará una breve introducción sobre el diagrama de secuencia y posteriormente, un análisis de la interacción presente entre los objetos del sistema realizando los diferentes diagramas de secuencia.
+
+\section{Introducción}
+
+Un diagrama de secuencia muestra la interacción de un conjunto de objetos de un sistema a través del tiempo. En este caso, este tipo de diagrama representa un esbozo de los detalles de implementación del escenario, donde se comienzan a identificar los objetos, las clases y los mensajes necesarios para el desarrollo. Este tipo de diagrama orienta el análisis del sistema hacia el diseño, se centra en cómo se implementará. 
+
+Los diagramas de secuencia se van a centrar en los escenarios principales que se han obtenido de los casos de uso, como son:
+
+\begin{enumerate}
+\item Editor
+
+\item Simulador
+
+\item Ayuda
+
+\item Tutorial
+\end{enumerate}
+
+\section{Identificación de los componentes generales}
+
+Los componentes generales del sistema son el esbozo de los componentes necesarios para la implementación de la aplicación. En el diseño son consideradas como una agrupación de componentes dedicados a una tarea del sistema. Los componentes necesaros para la implementación del sistema son:
+
+\begin{itemize}
+\item \textbf{Usuario}: representa al usuario final del simulador, el que va a iniciar todas las tareas.
+
+\item \textbf{Editor}: representa al componente que maneja toda la información relacionada con la edición de las gramáticas en el sistema.
+
+\item \textbf{Gramática}: representa al componente que maneja toda la información relacionada con las gramáticas de contexto libre.
+
+\item \textbf{Producción}: representa al componente que maneja toda la información relacionada con las producciones de la gramática.
+
+\item \textbf{Antecedente}: representa al componente que maneja toda la información relacionada con el antecedente de una producción.
+
+\item \textbf{Consecuente}: representa al componente que manejan toda la información relacionada con el consecuente de una producción.
+
+\item \textbf{Símbolo}: representa al componente que maneja toda la información relacionada con los símbolos de la gramática.
+
+\item \textbf{NoTerminal}: representa al componente que maneja toda la información relacionada con los símbolos no terminales.
+
+\item \textbf{Terminal}: representa al componente que maneja toda la información relacionada con los símbolos terminales.
+
+\item \textbf{TablaPredictiva}: representa al componente que maneja toda la información relacionada con la tabla predictiva del análisis sintáctico descendente.
+
+\item \textbf{TablaLR}: representa al componente que maneja toda la información relacionada con la tabla LR del análisis sintáctico ascendente.
+
+\item \textbf{FuncionesError}: representa al componente que maneja toda la información relacionada con las funciones de error para completar tanto la tabla predictiva como la tabla LR.
+
+\item \textbf{ColCanLR(0)}: representa al componente que maneja toda la información relacionada con la colección canónica de elementos LR(0).
+
+\item \textbf{ColCanLR(1)}: representa al componente que maneja toda la información relacionada con la colección canónica de elementos LR(1).
+
+\item \textbf{ColCanLALR(1)}: representa al componente que maneja toda la información relacionada con la colección canónica de elementos LALR(1).
+
+\item \textbf{Simulador}: representa al componente que maneja toda la información relacionada con el simulador de la aplicación.
+
+\item \textbf{CadenaEntrada}: representa al componente que maneja toda la información relacionada con la cadena de entrada a ser simulada.
+
+\item \textbf{Ayuda}: representa al componente que maneja toda la información relacionada con la ayuda de la aplicación.
+
+\item \textbf{Capítulo}: representa al componente que maneja toda la información relacionada con los capítulos contenidos en la ayuda de la aplicación.
+
+\item \textbf{Tutorial}: representa al componente que maneja toda la información relacionada con el tutorial de la aplicación.
+
+\item \textbf{Lección}: representa al componente que maneja toda la información relacionada con las lecciones contenidos en la ayuda de la aplicación.
+
+
+\end{itemize}
+
+\section{Diagrama de secuencia: Crear Gramática}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec3}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Crear Gramáticas. Para ello, el usuario solicita crear una gramática, se muestra un formulario en el cual tendrá que introducir los datos. A continuación, se procede a validar los datos de la gramática. Por último, se actualiza la visualización y se muestra al usuario los datos introducidos.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec3.jpg}
+	\caption{Diagrama secuencia: Crear Gramática}
+	\label{sec3}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Editar vocabulario}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec4}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Editar Vocabulario de la gramática. Para ello, el usuario solicita editar el vocabulario de una gramática. Para llevarlo a cabo, se obtienen los símbolos terminales y no terminales del vocabulario para que posteriormente el usuario introduzca las modificaciones. Por último, se valida, se almacenan los datos y se actualiza la visualización para mostrar al usuario los datos introducidos.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec4.jpg}
+	\caption{Diagrama secuencia: Editar vocabulario}
+	\label{sec4}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Editar producción}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec5}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Editar Producción. Para ello, el usuario solicita editar una producción de la gramática. Para llevarlo a cabo, se obtiene el antecedente y el consecuente de la producción a editar para que posteriormente el usuario introduzca las modificaciones. Por último, se comprueba si la producción es correcta y si es así se almacenan los datos, se actualiza la visualización para mostrar al usuario los datos introducidos.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[angle=90, scale=0.5]{img/sec5.jpg}
+	\caption{Diagrama secuencia: Editar producción}
+	\label{sec5}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Seleccionar Simbolo Inicial}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec6}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso seleccionar Simbolo Inicial. Para ello, el usuario solicita seleccionar el símbolo inicial de la gramática. Para llevarlo a cabo, se obtiene el vocabulario de la gramática y se muestra al usuario los símbolos no terminales para que elija uno. Por último, se comprueba si la selección es correcta y si es así se almacenan los datos y se actualiza la visualización para mostrar al usuario su selección.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec6.jpg}
+	\caption{Diagrama secuencia: Seleccionar Símbolo Inicial}
+	\label{sec6}
+      \end{center}
+  \end{figure}
+  
+ \newpage
+\section{Diagrama de secuencia: Recuperar Gramática}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec7}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Recuperar Gramática. Para ello, el usuario introduce la ruta donde está almacenada la gramática. Si ésta se encuentra en dicha ruta, se extrae y se actualiza la visualización.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec7.jpg}
+	\caption{Diagrama secuencia: Recuperar Gramática}
+	\label{sec7}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Validar Gramática}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec8}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Validar Gramática. Para ello, cuando se solicita validar la gramática se comprueban las producciones y si está todo correcto se devuelve la gramática validada.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec8.jpg}
+	\caption{Diagrama secuencia: Validar Gramática}
+	\label{sec8}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Transferir al simulador}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec9}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Transferir al simulador. Para ello, el usuario solicita transferir la gramática: si la gramática es válida entonces es enviada al simulador, que habrá sido inicializado previamente.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec9.jpg}
+	\caption{Diagrama secuencia: Transferir al simulador}
+	\label{sec9}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Simulación análisis Descendente}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec10}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Simulación análisis Descendente. Para ello, en primer lugar se debe buscar y validar la gramática a simular. A continuación, se debe obtener el conjunto Primero y Siguiente, la tabla predictiva y, si el usuario lo quiere, completar la tabla predictiva con funciones de error. Por último, se transfiere la gramática al simulador y se realiza el análisis de una cadena. Al final de todo el proceso el usuario obtiene el resultado de la simulación.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[angle=90, scale=0.5]{img/sec10.jpg}
+	\caption{Diagrama secuencia: Simulación análisis Descendente}
+	\label{sec10}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Simulación análisis Ascendente SLR}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec11}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Análisis SLR. Para ello, en primer lugar se debe buscar y validar la gramática a simular. A continuación, se debe crear el conjunto Primero y Siguiente, la colección canónica de elementos LR(0), la tabla LR y, si el usuario lo quiere, completar la tabla LR con funciones de error. Por último, se transfiere la gramática al simulador y se realiza el análisis de una cadena. Al final de todo el proceso el usuario obtiene el resultado de la simulación.
+\newpage
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[angle=90, scale=0.5]{img/sec11.jpg}
+	\caption{Diagrama secuencia: Simulación análisis Ascendente SLR}
+	\label{sec11}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Simulación análisis Ascendente LR-canónico}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec12}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Análisis LR-canónico. Para ello, en primer lugar se debe buscar y validar la gramática a simular. A continuación, se debe crear la colección canónica de elementos LR(1), la tabla LR y, si el usuario lo quiere, completar la tabla con funciones de error. Por último, se transfiere la gramática al simulador y se realiza el análisis de una cadena. Al final de todo el proceso el usuario obtiene el resultado de la simulación.
+\newpage
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[angle=90, scale=0.5]{img/sec12.jpg}
+	\caption{Diagrama secuencia: Simulación análisis Ascendente LR-canónico}
+	\label{sec12}
+      \end{center}
+  \end{figure}
+  
+\section{Diagrama de secuencia: Simulación análisis Ascendente LALR}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec13}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Análisis LALR. Para ello, en primer lugar se debe buscar y validar la gramática a simular. A continuación, se debe crear la colección canónica de elementos LALR(1), la tabla LR y, si el usuario lo quiere, completar la tabla LR con funciones de error. Por último, se transfiere la gramática al simulador y se realiza el análisis de una cadena. Al final de todo el proceso el usuario obtiene el resultado de la simulación.
+\newpage
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[angle=90, scale=0.5]{img/sec13.jpg}
+	\caption{Diagrama secuencia: Simulación análisis Ascendente LALR}
+	\label{sec13}
+      \end{center}
+  \end{figure}
+
+\section{Diagrama de secuencia: Tutorial}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec1}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Consulta del Tutorial. Para ello, el usuario solicita buscar un recurso del tutorial y una vez dentro del módulo el usuario podrá navegar por él.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec1.jpg}
+	\caption{Diagrama secuencia: Tutorial}
+	\label{sec1}
+      \end{center}
+  \end{figure}
+
+\section{Diagrama de secuencia: Ayuda}
+
+El diagrama de secuencia que se muestra en la figura \ref{sec2}, refleja la interacción de mensajes entre los objetos que participan en el caso de uso Consulta de la Ayuda. Para ello, el usuario solicita buscar un recurso de la ayuda y una vez dentro del módulo el usuario podrá navegar por él.
+
+\begin{figure}[H]
+      \begin{center} 
+	\includegraphics[scale=0.5]{img/sec2.jpg}
+	\caption{Diagrama secuencia: Ayuda}
+	\label{sec2}
+      \end{center}
+  \end{figure}
+
+
+
+
+
+
+
+
+
+

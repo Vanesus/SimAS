@@ -1,0 +1,142 @@
+
+\chapter{Antecedentes}
+
+En este capítulo se mostrarán los antecedentes de este proyecto. En él se tratarán los siguientes temas:
+
+\begin{itemize}
+\item Los fundamentos teóricos sobre los que se basa el proyecto, como son las gramáticas formales, el análisis descendente y el análisis ascendente.
+\item Descripción de los proyectos fin de carrera ya existentes, basados en el tema que estamos tratando.
+\item Por último, se realizará la justificación del desarrollo del proyecto.
+\end{itemize}
+
+
+
+\section{Fundamentos teóricos}
+
+Como ya se ha mencionado en apartados anteriores, el objetivo del proyecto es el de realizar un simulador del Análisis sintáctico descendente y ascendente a partir de una gramática de contexto libre. 
+
+A continuación se lleva a cabo una introducción a ambos análisis sintácticos, con el fin de que el lector se familiarice con el tema tratado en este proyecto.
+
+\subsection{Gramáticas formales}
+
+Una gramática formal es un conjunto de reglas para reescribir cadenas de caracteres, junto con un símbolo inicial desde el cual debe comenzar la reescritura. Por lo tanto, una gramática formal generalmente se piensa como una generadora de lenguajes.
+
+Un lenguaje formal es de contexto libre si hay una gramática de contexto libre que lo genera. Estas gramáticas permiten describir la mayoría de los lenguajes de programación, de hecho, la síntaxis de la mayoría de lenguajes de programación está definida mediante gramáticas de contexto libre.
+
+Toda esta información se ampliará en el \textit{Anexo A. Fundamentos teóricos de las gramáticas de contexto libre}.
+
+\subsection{Análisis descendente}
+
+El análisis descendente puede verse como el problema de contruir un árbol de análisis sintáctico para la cadena de entrada, partiendo desde la raíz y creando los nodos del árbol de análisis sintáctico en preorden (profundidad primero). De manera equivalente, se puede considerar el análisis sintáctico descendente como la búsqueda de una derivación por la izquierda para una cadena de entrada.
+
+\subsection{Análisis ascendente}
+
+Un análisis sintáctico ascendente corresponde a la construcción de un árbol de análisis sintáctico para una cadena de entrada que empieza en las hojas (la parte inferior) y avanza hacia la raíz (la parte superior). De forma análoga, el análisis sintáctico ascendente tiene como objetivo obtener
+una derivación por la derecha y en órden inverso de la cadena de entrada.
+
+\section{Proyectos de fin de carrera}
+
+En lo que respecta a los antecedentes software, no se tiene referencia de que exista ninguna herramienta que implemente todo el análisis sintáctico completo. Existen herramientas que desarrollan el análisis descendente o el análisis ascendente, pero no de ambas a la vez.
+
+Para la realización del presente proyecto se va a tomar como guía dos proyectos de fin de carrera de la Universidad de Córdoba que persiguen el mismo objetivo pero uno desarrolla el Análisis Sintáctico Descendente \cite{9} y el otro el Análisis Sintáctico Ascendente\cite{10}.
+
+
+\subsection{Proyecto GASYT}
+
+\begin{itemize}
+
+\item \textbf{Título:} Anális y diseño de un generador de analizadores sintácticos descendentes y predictivos. [Figura \ref{Figura3_1_}]
+
+\item \textbf{Autores:} Álvaro Márquez Lebrón y Tatiana Sánchez Gutiérrez. Universidad de Córdoba.
+
+\item \textbf{Descripción:} este proyecto escrito en Java, realiza una simulación de los métodos de análisis descendentes. Contiene la siguiente funcionalidad:
+	\begin{itemize}
+	\item Edición de gramáticas de contexto libre.
+	\item Limpieza de gramáticas y generación de la tabla predictiva.
+	\item Simulación del análisis sintáctico descendente y predictivo.
+	\end{itemize}
+
+\item \textbf{Requisitos:} el único requisito es contar con la máquina virtual de Java.
+
+\end{itemize}
+
+
+\begin{figure}
+	\begin{center}
+     \includegraphics[scale=0.5]{img/GASYT.png} 
+      \caption{GASYT}
+      \label{Figura3_1_}
+	\end{center}
+  \end{figure}
+
+\subsection{Proyecto SimLR}
+
+\begin{itemize}
+
+\item \textbf{Título:} Simulador de Análisis Sintáctico Ascendente LR. [Figura \ref{Figura3_2_}]
+
+\item \textbf{Autor:} Luis del Moral Martínez. Universidad de Córdoba.
+
+\item \textbf{Descripción:} este proyecto también esta desarrollado en lenguaje Java, el cual realiza una simulación del análisis sintáctico Ascendente. Consta de la siguiente funcionalidad:
+	\begin{itemize}
+	\item Creación de gramáticas de contexto libre.
+	\item Explicación de los métodos de \textit{Análisis LR}.
+	\item Simulación de los métodos de \textit{Análisis LR}.
+	\end{itemize}
+
+\item \textbf{Requisitos:} el único requisito es contar con la máquina virtual de Java.
+
+\end{itemize}
+ 
+
+\begin{figure}
+	\begin{center}
+     \includegraphics[scale=0.5]{img/SimLR.png} 
+      \caption{SimLR}
+      \label{Figura3_2_}
+	\end{center}
+  \end{figure}
+
+
+\section{Justificación del proyecto}
+
+La implementación de \textit{SimAS} se encuentra justificado por las siguientes razones: [tabla \ref{tlb:tabla3_1}]
+
+\begin{itemize}
+
+\item El análisis sintáctico es la fase más compleja en la construcción de un compilador y su estudio resulta bastante tedioso.
+
+\item El simulador será de gran ayuda para el aprendizaje paso a paso del análisis sintáctico.
+
+\item No existe ninguna herramienta que aúne ambos tipos de análisis sintáctico, descendente y ascendente.
+\end{itemize}
+
+Por todo lo descrito anteriormente, se ha creído conveniente llevar a cabo este proyecto de ámbito didáctico, cumpliendo todos los objetivos expuestos en el capítulo anterior y que cubra las necesidades del usuario final.
+
+ 
+\begin{center}
+
+\begin{table}[H]
+
+ \caption{Comparación entre proyectos}
+
+\resizebox{15cm}{!} {
+\begin{tabular}[c]{| l | c | c | c |}
+\hline
+  & \textbf{GASYT} & \textbf{SimLR} & \textbf{SimAS} \\ \hline
+ Generación de gramáticas de contexto libre & Sí & Sí & Sí \\ \hline
+ Análisis sintáctico descendente & Sí & No & Sí \\ \hline
+ Análisis sintáctico ascendente & No & Sí & Sí \\ \hline
+ Tutorial & Sí & Sí & Sí \\ \hline
+ Ayuda & Sí & Sí & Sí \\ \hline
+ Generación de informes & Sí & Sí & Sí \\ \hline
+ Detección y recuperación de errores & No & Sí & Sí \\ \hline
+
+\end{tabular}
+}
+
+ \label{tlb:tabla3_1}
+
+\end{table}
+
+\end{center}

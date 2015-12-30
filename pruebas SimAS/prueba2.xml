@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gramatica.xsl"?>
+<grammar>
+	<name>prueba1</name>
+	<description>Gramatica que genera palabras compuestas por aes y por bes, donde las aes preceden a las bes y hay el doble de aes que de bes.
+Al menos hay 4 aes.</description>
+	<non-terminal-symbols>
+		<non-terminal>
+			<value>S</value>
+		</non-terminal>
+		<non-terminal>
+			<value>A</value>
+		</non-terminal>
+	</non-terminal-symbols>
+	<terminal-symbols>
+		<terminal>
+			<value>a</value>
+		</terminal>
+		<terminal>
+			<value>b</value>
+		</terminal>
+		<terminal>
+			<value>ε</value>
+		</terminal>
+	</terminal-symbols>
+	<init-symbol>S</init-symbol>
+	<rule-set>
+		<rule>
+			<value>S → a a A b </value>
+		</rule>
+		<rule>
+			<value>A → a a A b  </value>
+		</rule>
+		<rule>
+			<value>A → a a b </value>
+		</rule>
+	</rule-set>
+</grammar>

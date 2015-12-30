@@ -1,0 +1,299 @@
+
+
+\chapter{Introducción}
+
+\section{Presentación}
+
+Uno de los objetivos principales de la Ingeniería Informática es el desarrollo e implementación de programas, en función de las necesidades de un cliente, utilizando para ello uno o varios lenguajes de programación.
+
+El compilador es una parte fundamental de cualquier lenguaje de programación. A grandes rasgos, se trata de un programa que lee un programa escrito en un lenguaje, el lenguaje \textit{fuente}, y lo traduce a un programa equivalente en otro lenguaje, el lenguaje \textit{objeto}. Si el programa escrito en lenguaje \textit{fuente} es correcto, podrá hacerse la traducción; si no, se obtendrá un mensaje de error que permita determinar los orígenes de la incorrección. 
+
+La traducción puede hacerse en dos formas: compilación e interpretación.
+
+\begin{itemize}
+\item \textbf{Compilación:} la traducción se realiza con la entrada del lenguaje fuente y como salida resulta un fichero ejecutable, es decir, realiza una traducción de un código de alto nivel a código máquina. [Figura \ref{Figura11}]
+
+
+\begin{figure}
+	\begin{center}
+     \includegraphics[scale=0.25]{img/traductor.png} 
+      \caption{Proceso de traducción}
+      \label{Figura11}
+	\end{center}
+  \end{figure}
+
+
+
+
+\item \textbf{Interpretación:} se caracteriza por traducir y ejecutar, de una en una, las instrucciones del código fuente de un programa, pero, sin generar como salida código objeto. El proceso que realiza un intérprete es el siguiente: lee la primera instrucción del código fuente, la traduce a código objeto y la ejecuta; a continuación, hace lo mismo con la segunda instrucción; y así sucesivamente, hasta llegar a la última instrucción del programa, siempre y cuando, no se produzca ningún error que detenga el proceso. Todo esto se observa en la Figura \ref{Figura12}.
+
+\begin{figure}
+	\begin{center}
+     \includegraphics[scale=0.25]{img/interprete.png} 
+      \caption{Proceso de interpretación}
+      \label{Figura12}
+	\end{center}
+  \end{figure}
+
+
+
+\end{itemize}
+
+Ambas transformaciones constan de dos fases principales (Ver Figura \ref{Figura13} ): 
+\begin{itemize}
+\item \textbf{Análisis: }se encarga de comprobar que el programa fuente está bien escrito. A su vez la fase de análisis se subdivide en:
+
+\begin{itemize}
+\item Análisis Léxico: es un análisis lineal en el que la cadena de entrada se lee de izquierda a derecha y se agrupa en componentes léxicos, \textit{tokens}.
+
+\item Análisis Sintáctico: agrupa los componentes léxicos en frases gramaticales que el compilador utiliza. En él se centra nuestro proyecto.
+
+\item Análisis Semántico: busca errores semánticos, reúne información de tipos e identifica operadores y operandos.
+\end{itemize}
+
+\item \textbf{Síntesis: }se ocupa de la generación del código ejecutable. Se subdivide en:
+
+\begin{itemize}
+
+\item Generación de código intermedio.
+
+\item Optimización del código intermedio.
+
+\item Generación de código.
+
+\item Optimización del código intermedio.
+
+\end{itemize}
+\end{itemize}
+
+\begin{figure}
+	\begin{center}
+     \includegraphics[scale=0.17]{img/procesoCompilacion.png} 
+      \caption{Proceso de compilación}
+      \label{Figura13}
+	\end{center}
+  \end{figure}
+
+
+El desarrollo de este proyecto se centrará sobre la fase de análisis, más en concreto en el Análisis Sintáctico. Existen tres tipos de analizadores sintácticos:
+
+\begin{itemize}
+\item \textbf{Ascendentes:} intentan obtener una derivación por la derecha en orden inverso de la cadena de entrada, es decir, intentan construir un árbol sintáctico empezando por las hojas y terminando por la raíz.
+
+\item \textbf{Descendentes:} intentan obtener una derivación por la izquierda de la cadena de entrada, es decir, intentan construir un árbol sintáctico desde la raíz hasta las hojas.
+
+\item \textbf{Generales:} aunque aplicables a cualquier tipo de gramática, resultan inviables en la práctica para la construcción de compiladores ya que resultan altamente ineficientes. Éstos son el algoritmo de Earley y el algoritmo de CYK.[1]
+\end{itemize}
+
+
+
+\section{Definición del problema real}
+
+Este proyecto fin de carrera surge debido a la dificultad que pueden tener el alumnado de Ingeniería Informática para comprender la fase de análisis Sintáctico de un compilador, ya que es un proceso largo que se puede llevar a cabo con diferentes métodos. Se pretende desarrollar una herramienta que sea capaz de realizar el análisis sintáctico completo, tanto descendente como ascendente; de una manera detallada permitiendo al alumno comprender paso a paso su desarrollo.
+
+Debido a todo esto, se ha decidido desarrollar una herramienta con las siguientes características:
+
+\begin{itemize}
+
+\item Edición de gramáticas de contexto libre
+
+\item Simular un Análisis Sintáctico Descendente Predictivo.
+
+\item Simular un Análisis Sintáctico Ascendente:
+
+	\begin{itemize}
+
+	\item SLR
+	
+	\item LR-Canónico.
+	
+	\item LALR.
+	
+	\end{itemize}
+
+\item Tutorial:
+
+	\begin{itemize}
+
+	\item Gramáticas de contexto libre.
+	
+	\item Análisis Sintáctico Descendente.
+	
+	\item Análisis Sintáctico Ascendente.
+	
+	\end{itemize}
+	
+\end{itemize}
+	
+En resumen, se trata de la creación de un software didáctico dedicado al aprendizaje de los métodos de Análisis Sintácticos tanto Ascendente como Descendente. Con ello se avanzaría en el campo de los Procesadores de Lenguaje, ya que dotaría al alumnado de una herramienta de software que permite abarcar su ámbito más complejo.
+
+\section{Definición del problema técnico}
+
+La solución que se propone es la realización de un simulador de Análisis Sintáctico, tanto Ascendente como Descendente, que simule y explique paso a paso cada uno de los métodos del Análisis Sintáctico.
+La definición del problema técnico se llevará a cabo en las siguientes secciones utilizando para ello la técnica PDS (\textit{Product Design Specification}).
+
+\subsection{Funcionamiento}
+
+La aplicación estará dividida en los siguientes módulos:
+
+\begin{itemize}
+
+\item \textbf{Editor de gramáticas de contexto libre:} permitirá al usuario crear, cargar, guardar y modificar la gramática de contexto libre que va a ser utilizada en la simulación.
+
+\item \textbf{Simulador gráfico descendente:} simulará el funcionamiento del método de análisis sintáctico descendente. Para ello utilizará la gramática creada por el usuario en el módulo anterior.
+
+\item \textbf{Simulador gráfico ascendente:} permitirá realizar la simulación de los métodos de análisis sintáctico ascendente usando la gramática definida en el primer módulo.
+
+\item \textbf{Tutorial:}realizará una explicación de los orígenes, fundamentos y funcionamiento de cada uno de los métodos del Análisis Sintáctico.
+
+\item \textbf{Ayuda:} explicará al usuario el funcionamiento paso a paso del programa, presentando todos y cada uno de los componentes de la interfaz y módulos que lo componen.
+
+\end{itemize}
+
+El funcionamiento de la aplicación se describirá más detalladamente en el \textit{Capítulo 6: Descomposición funcional del Sistema}.
+
+\subsection{Entorno}
+
+\subsubsection{Interfaz con el usuario}
+
+El sistema de software a desarrollar está destinado al uso didáctico, por lo cual debe ser lo más intuitivo posible para facilitar a los usuarios el aprendizaje de los diferentes analizadores sintácticos.\\
+
+Debido a la aplicación académica, se persigue que los usuarios puedan ejecutar el software en distintos ordenadores. Por lo tanto, el software debe ser portable y multiplataforma.
+Por último, los requisitos de hardware serán los mínimos posibles, para facilitar la portabilidad.
+
+\subsubsection{Entorno de programación}
+
+La aplicación se desarrollará en el entorno de desarrollo \textbf{Netbeans 7.0.1}, debido a las múltiples facilidades y utilidades que éste proporciona (editor gráfico de GUI, depurador,...), las cuales facilitan en gran medida la labor del desarrollo software.
+
+\subsubsection{Ambiente de ejecución}
+
+El programa será llevado a cabo utilizando el lenguaje de programación Java, ya que ofrece una alta portabilidad en cualquier sistema que posea la Máquina Virtual de Java instalada.
+
+Además de lo anterior, no se necesitará ningún conocimiento adicional para la ejecución o instalación del programa en cualquier sistema operativo, ya que estas funciones ya vienen proporcionadas por el entorno de la Máquina Virtual de Java.
+
+\subsection{Vida esperada}
+
+La estimación de la vida esperada de un producto software es muy difícil de realizar. En este caso, los fundamentos teóricos sobre los que se basa no van a cambiar, pero sí puede quedar obsoleto el simulador.
+
+La aplicación que se va a desarrollar tiene fines didácticos, por lo que cabe esperar que siempre tendrá cierta importancia. Aún así, con el paso del tiempo, es posible que el software deba ser modificado o ampliado, con el objetivo de añadir nuevas funcionalidades o modificar los métodos de análisis, en el caso de que éstos quedasen obsoletos.
+
+Para que estos cambios se puedan llevar a cabo en un futuro, se debe realizar un diseño modular que facilite a\~nadir nuevas funcionalidades o la modificación de los ya existentes, ayudando lo máximo posible a los futuros desarrolladores.
+
+\subsection{Ciclo de mantenimiento}
+
+El ciclo de mantenimiento se identifica como el conjunto de modificaciones que resulta necesario realizar para que una determinada aplicación pueda hacer frente a diferentes circunstancias que puedan surgir, o a nuevas exigencias procedentes del usuario final o del propio sistema.
+
+El producto a desarrollar formará parte de un Proyecto de Fin de Carrera, por lo que, una vez finalizado, el mantenimiento del mismo se llevará a cabo por un equipo de desarrollo diferente al que lo creó. Por estas razones, el diseño debe ser robusto y modular para permitir que los futuros cambios o ampliaciones se puedan realizar con la mayor facilidad posible.
+
+\subsection{Competencia}
+
+Actualmente, existen diversos productos orientados al Análisis Sintáctico, algunos de ellos desarrollados como proyectos de fin de carrera en la Universidad de Córdoba. Más adelante, en el \textit{Capítulo 3.- Antecedentes} se llevará a cabo un análisis más detallado de los Antecedentes de este proyecto.
+
+Sin embargo, no se tiene conocimiento de la existencia de ningún software que realice el Análisis Sintáctico completo, tanto ascendente como descendente.
+
+\subsection{Aspecto externo}
+
+Esta aplicación se presentará en un CD autoinstalable, para que el usuario pueda obtenerla fácilmente desde el mismo. Además del CD, se proporcionarán los siguientes documentos:
+
+\begin{itemize}
+\item Manual Técnico: es el manual con el estudio y desarrollo de la aplicación.
+
+\item Manual de Usuario: está destinado al usuario final de la aplicación, donde se explica el funcionamiento de la misma.
+
+\item Manual de Código: se encuentra el código implementado, destinado a los futuros desarrolladores que quieran ampliar el software.
+\end{itemize}
+
+En cuanto a la interfaz gráfica, se realizará un estudio detallado en el \textit{Capítulo 11.- Especificación de requisitos de la interfaz}.
+
+\subsection{Estandarización}
+
+La interacción con el usuario se hará a través de la interfaz gráfica. Por esto, la apariencia del programa debe cumplir los siguientes requisitos:
+
+\begin{itemize}
+
+\item Sensibilidad: la interfaz debe guiar al usuario a través de la aplicación. Según los eventos que se produzcan durante la ejecución, la interfaz deberá informar y seguir guiando al usuario a través de la misma hasta la resolución de éstos.
+
+\item Interacción: ésta ha de ser sencilla, intuitiva y fluida.
+
+\item Consistencia y coherencia: los datos de entrada y salida guardarán coherencia en todo momento, es decir, deben ser comprensibles por el usuario.
+
+\item Control de usuario: esta aplicación debe ser amigable, por lo que una entrada o acción errónea por parte del usuario será controlada con un mensaje de error para que se lleve a cabo su corrección.
+
+\item Claridad: la interfaz gráfica de la aplicación mostrará los controles y las salidas de datos de la aplicación de manera clara y lo más amigable posible.
+
+\end{itemize}
+
+En cuanto al código fuente, deberá estar correctamente documentado de forma que cualquier programador informático pueda entenderlo y utilizarlo de cara a futuras mejoras.
+
+\subsection{Calidad y Fiabilidad}
+
+La calidad y la fiabilidad son dos factores muy importantes que hay que tener en cuenta en el desarrollo de cualquier aplicación, puesto que es necesario proporcionar al usuario final garantías que le permitan depositar su confianza en el producto, ya que, en caso contrario, podrían surgir reacciones adversas a su utilización.
+
+En el caso de la aplicación a desarrollar, la calidad viene respaldada por el uso de herramientas de diseño profesionales y de gran trayectoria, como son NetBeans y la Máquina Virtual de Java, así como por el soporte de hardware de la misma.
+
+La fiabilidad de la aplicación quedará respaldada por las pruebas realizadas con el programa. Con esto se persigue que quede exento de errores provocados por una mala planificación o incluso un mal diseño de implementación.
+
+\subsection{Programa de tareas}
+
+El programa de tareas se define como el conjunto de etapas y actividades que constituyen el proceso de desarrollo de una aplicación. A continuación, se describirán las diferentes etapas en las que se puede organizar el proceso de desarrollo de esta herramienta software:
+
+\begin{enumerate}
+
+\item Estudio del entorno NetBeans y del lenguaje de programación Java.
+\item Definición del problema.
+\item Análisis.
+
+	\begin{enumerate}
+	\item Especificación de requisitos.
+	\item Especificación de los casos de uso.
+	\item Especificación de los diagramas de secuencia.
+	\item Especificación de los requisitos de la interfaz.
+	\item Validación del análisis.
+	\end{enumerate}
+
+\item Diseño.
+
+	\begin{enumerate}
+	\item Diagramas de clases.
+	\item Diagrama de paquetes.
+	\item Diseño de la interfaz.
+	\item Validación del diseño.
+	\end{enumerate}
+
+\item Codificación y pruebas.
+\item Documentación (fase que se llevará a cabo durante todo el desarrollo del proyecto)
+
+
+\end{enumerate}
+
+\subsection{Pruebas}
+
+Las pruebas se definen como el conjunto de acciones y datos que son utilizados para poder depurar la aplicación desarrollada, además del medio para demostrar la funcionalidad de la misma y su utilidad.
+Se realizarán los siguientes tipos de pruebas:
+
+\begin{itemize}
+\item Pruebas de unidad: estas pruebas servirán para probar cada uno de los módulos por separado.
+\item Pruebas de integración: para comprobar el correcto funcionamiento de las interacciones entre los distintos módulos que componen la aplicación.
+\item Pruebas de software: se llevarán a cabo cuando el programa esté terminado y comprobarán el correcto funcionamiento del mismo, comprobando todas y cada una de las especificaciones.
+\item Pruebas de sistema: con estas pruebas se persigue probar la comunicación y cohesión existentes entre el programa, el entorno de hardware y el sistema operativo.
+\end{itemize}
+
+Cada una de estas pruebas se compondrá de los siguientes elementos:
+
+\begin{itemize}
+
+\item Objetivo: define lo que se pretende evaluar con la realización de la prueba.
+\item Problema: explicación del problema encontrado durante la realización de la prueba en caso de ocurra alguno.
+\item Solución: solución adoptada tras la detección del error de la prueba.
+
+\end{itemize}
+
+\subsection{Seguridad}
+
+La seguridad que presentará la herramienta que se pretende desarrollar deberá consistir en garantizar que, durante su ejecución, no se realice ninguna actividad incorrecta ajena a su propia funcionalidad. Además, será necesario asegurar la protección de los dispositivos de almacenamiento propios del usuario, aunque para controlar este aspecto no será necesario tomar ninguna medida adicional al considerarse suficientes los mecanismos de seguridad proporcionados por el propio lenguaje Java.
+
+El software que se va a desarrollar se establece como una aplicación de libre distribución, copia y uso, debido a su carácter estrictamente académico; es por ello que carece de cualquier ánimo de lucro o carácter privativo, no existiendo protección contra su libre distribución.
+
+Para evitar cualquier acción malintencionada ligada con la copia o la reproducción total o parcial, así como cualquier remuneración económica por su distribución, la aplicación se atiene a la licencia GPL de GNU.
+
+

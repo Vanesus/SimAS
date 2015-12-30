@@ -1,0 +1,1182 @@
+
+\chapter{Especificación de requisitos}
+
+En este capítulo se llevará a cabo la especificación de los requisitos
+de \textit{usuario}, la especificación de los requisitos \textit{funcionales} y \textit{no funcionales}, así como los requisitos de \textit{información} del programa que se pretende desarrollar.
+
+En primer lugar, antes de empezar con la especificación de los requisitos, se va a realizar la descripción funcional del simulador, especificando cada uno de los módulos identificados en los capítulos anteriores. Una vez hecho esto, será necesario definir los actores, es decir, los usuarios finales que harán uso de la aplicación.
+
+
+\section{Descripción modular del Sistema}
+
+A continuación, en las siguientes subsecciones, se procederá
+a analizar detalladamente cada uno de los módulos que compondrán
+la aplicación. Estos módulos se identificaron en los capítulos
+anteriores y son los siguientes:
+
+\begin{itemize}
+ \item Editor de gramáticas.
+ \item Simulador:
+ \begin{itemize}
+ 	 \item Simulador gráfico descendente.
+ 	 \item Simulador gráfico ascendente.
+ 
+ \end{itemize}
+
+ \item Tutorial.
+ \item Ayuda.
+\end{itemize}
+
+En la Figura \ref{Figura61} se muestra la descomposición modular del Sistema.
+\begin{figure}[H]
+  \begin{center} 
+    \includegraphics[width=1\textwidth]{img/descomp.jpg}
+    \caption{Descomposición modular del Sistema}
+    \label{Figura61}
+  \end{center}
+\end{figure}
+
+\subsection{Módulo \textit{Simulador Gráfico de Análisis Sintácticos}}
+
+Este es el módulo principal de la aplicación. Contiene todos los demás
+módulos, así como los mecanimos para inicializar la aplicación
+y toda la interfaz.
+
+A través de este módulo, el usuario puede acceder a las funcionalidades
+que proporcionan los demás módulos.
+
+\subsection{Módulo \textit{Editor de gramáticas}}
+
+Este módulo se encarga de la creación y manipulación de las gramáticas de
+contexto libre. Las funcionalidades que brinda este módulo son las siguientes:
+
+\begin{enumerate}
+ \item \textbf{Creación de una gramática}: permitirá crear una gramática
+  desde cero, creando cada uno de los componentes que la forman
+  (vocabulario de símbolos, símbolo inicial y producciones).
+ \item \textbf{Gestión del vocabulario de una gramática}: permitirá al usuario
+  manipular el vocabulario de símbolos de la gramática (para añadir o eliminar símbolos). Estos
+ símbolos se emplearán para crear las reglas de la gramática.
+ \item \textbf{Gestión de producciones}: esta funcionalidad permitirá al usuario
+  introducir todas las producciones  que componen la gramática.
+  Se deberá tener en cuenta que no se
+  puede tener dos instancias de la misma producción en la gramática. 
+ \item {\textbf{Validación}: esto permitirá al usuario validar una gramática
+  creada o cargada de un fichero. De esta forma, se garantizará que
+  dicha gramática soporta un análisis sintáctico. Algunas de las comprobaciones
+  que este módulo llevará a cabo serán las siguientes:
+    \begin{enumerate}
+      \item Comprobación de la regla inicial de la gramática 
+        (de la forma $S \rightarrow \dots$).
+      \item Comprobación de símbolos no terminales (comprobar que
+	todos tienen al menos una producción asociada).
+    \end{enumerate}
+  En el caso de que la gramática no pueda ser validada, se deberá
+  informar al usuario acerca de los posibles errores existentes
+  y de la forma más adecuada de subsanarlos.}
+ \item \textbf{Almacenamiento}: permitirá almacenar una gramática
+  en un fichero en el disco. Este almacenamiento
+  solo se podrá llevar a cabo siempre y cuando la gramática
+  se haya validado de forma satisfactoria.
+ \item \textbf{Carga}: permitirá cargar una gramática desde un fichero en el disco.
+  Se deberá comprobar si el fichero a cargar es correcto y no es 
+  corrupto, mostrando al usuario todos los errores que se puedan
+  producir durante la carga de la gramática.
+ \item \textbf{Representación}: esta funcionalidad permitirá representar 
+  la gramática visualmente, de forma intuitiva. Se utilizará para
+  mostrar al usuario la gramática de la misma forma que éste la
+  representaría (teóricamente hablando), y cumpliendo todas
+  las convenciones de notación (expuestas en el Anexo A de
+  este documento).
+ \item \textbf{Generación de informes}: esta funcionalidad permitirá generar
+un informe de la gramática, que contenga todos los componentes que la forman, además
+de una representación gráfica de la misma.
+\end{enumerate}
+
+\subsection{Módulo \textit{Simulador Gráfico}}
+
+Este módulo es el punto central del proyecto. Se encargará de la
+simulación de cada uno de los métodos del análisis sintáctico. Este módulo se divide en dos partes: Simulación descendente y Simulación ascendente. Ambos, tomarán una gramática (creada con el módulo editor de gramáticas) y realizará la simulación del método elegido.
+
+\subsubsection{Simulador descendente}
+
+Los pasos a seguir para llevar a cabo la simulación son los siguientes:
+
+\begin{enumerate}
+ \item \textbf{Creación o carga de una gramática}: en primer lugar,
+  el usuario creará o cargará una gramática, haciendo uso
+  del módulo editor de gramáticas. Se presupone que la gramática
+  ha sido validada antes de cargarla en el simulador.
+  
+ \item \textbf{Conjuntos Primero y Siguiente}: el primer paso a dar con la gramática es la realización de los conjuntos primero y siguiente. Estos conjuntos permitirán elegir la producción que se va a aplicar, con base en el siguiente símbolo de entrada.
+  
+ \item \textbf{Construcción de la tabla predictiva}: en este paso, se construirá
+  la tabla predictiva del método. Durante la construcción, se mostrarán 
+  al usuario todos los errores identificados. 
+  
+ \item \textbf{Simulación}: una vez generada la tabla predictiva, el usuario podrá
+  introducir una cadena de entrada y simularla según dicha tabla. Nuevamente, se
+  deberán controlar todos los errores que se produzcan, así como
+  notificar al usuario si la cadena de entrada es o no reconocida.
+  Durante la simulación, el usuario podrá asignar ciertas funciones de tratamiento de errores, 
+  para tratar los errores que se produzcan al reconocer la cadena.
+  
+ \item {\textbf{Generación de informes}: por último, se generará
+  un informe de la simulación realizada, el cual se podrá obtener en formato pdf o html. Este informe, que podrá
+  ser guardado por el usuario en el disco, contendrá lo siguiente:
+    \begin{itemize}
+     \item Información sobre la gramática a simular.
+     \item Conjuntos Primero y Siguiente.
+     \item Tabla predictiva obtenida (incluyendo todos aquellos datos
+      necesitados para calcularla).
+     \item Cadena de entrada reconocida.
+     \item Errores producidos y tratamiento realizado (si se producen).
+    \end{itemize}
+ }
+\end{enumerate}
+
+
+\subsubsection{Simulador ascendente}
+
+Los pasos a seguir para llevar a cabo la simulación son los siguientes:
+
+\begin{enumerate}
+ \item \textbf{Creación o carga de una gramática}: al igual que en el caso anterior,
+  el usuario creará o cargará una gramática, haciendo uso
+  del módulo editor de gramáticas. Se presupone que la gramática
+  ha sido validada antes de cargarla en el simulador.
+  
+  \item \textbf{Selección del método de la simulación}: a continuación, se seleccionará el método con el que se realizará la simulación: \textit{SLR, LR-canónico o LALR}.
+  
+  \item \textbf{Conjuntos Primero y Siguiente}: en el caso de que el método de simulación elegido sea \textit{SLR}, será necesario la construcción de los conjuntos Primero y Siguiente.
+  
+ \item \textbf{Construcción de la tabla de análisis LR}: en este paso, se construirá
+  la tabla LR del método seleccionado. Durante la construcción, se mostrarán 
+  al usuario todos los errores identificados. 
+  
+ \item \textbf{Simulación}: una vez generada la tabla LR correspondiente, el usuario podrá
+  introducir una cadena de entrada y simularla según dicha tabla. Nuevamente, se
+  deberán controlar todos los errores que se produzcan, así como
+  notificar al usuario si la cadena de entrada es o no reconocida.
+  Durante la simulación, el usuario podrá asignar ciertas funciones de tratamiento de errores, 
+  para tratar los errores que se produzcan al reconocer la cadena.
+  
+ \item {\textbf{Generación de informes}: por último, se generará
+  un informe de la simulación realizada, el cual se podrá obtener en formato pdf o html. Este informe, que podrá ser guardado por el usuario en el disco, contendrá lo siguiente:
+    \begin{itemize}
+     \item Información sobre la gramática a simular.
+     \item Conjuntos Primero y Siguiente si el método de simulación es \textit{SLR}.
+     \item Tabla de análisis LR obtenida (incluyendo todos aquellos datos
+      necesitados para calcularla).
+     \item Cadena de entrada reconocida.
+     \item Errores producidos y tratamiento realizado (si se producen).
+    \end{itemize}
+ }
+\end{enumerate}
+
+
+
+\subsection{Módulo \textit{Tutorial}}
+
+Este módulo se encargará de cubrir todos los objetivos didácticos
+del proyecto. Para ello, se situará este módulo de forma que sea
+accesible desde los demás módulos del programa. Así, el usuario
+podrá consultarlo cuando desee, incluso a la vez que trabaja con
+el programa.
+
+
+El tutorial constrará de las siguientes partes:
+
+\begin{enumerate}
+ \item \textbf{Introducción y conceptos teóricos básicos}: esta sección
+  del tutorial tratará de los conceptos teóricos en los que se
+  basa el análisis sintáctico, así como las gramáticas
+  de contexto libre.
+  \item \textbf{Lecciones de análisis sintáctico descendente}: en esta sección
+  se explicarán los métodos de análisis sintáctico descendente predictivo, paso a paso.
+ \item \textbf{Lecciones de análisis sintáctico ascendente}: en esta sección
+  se explicarán los tres métodos de análisis LR, paso a paso.
+ \item \textbf{Ejemplos y ejercicios propuestos}: finalmente, esta sección
+  contendrá ejercicios propuestos para los usuarios. Por medio de esta
+  sección, los usuarios podrán realizar los ejercicios y comprobarlos
+  con el simulador. Esto facilitará mucho la tarea de aprendizaje del alumnado.
+\end{enumerate}
+
+
+\subsection{Módulo \textit{Ayuda}}
+
+Este módulo cubrirá la ayuda de la aplicación. En esta ayuda,
+se detallará el funcionamiento de cada uno de los módulos de la aplicación.
+Los contenidos de la ayuda son los siguientes:
+
+\begin{enumerate}
+ \item \textbf{Introducción}: este capítulo introducirá al usuario
+  al software, exponiendo los objetivos del mismo.
+ \item \textbf{Instalación y desinstalación}: este capítulo detallará
+  los requisitos necesarios del programa, así como la instalación
+  y desinstalación del mismo.
+ \item \textbf{Interfaz del programa}: este capítulo explicará al usuario
+  los diferentes componentes que forman la interfaz del simulador.
+ \item \textbf{Módulos del programa}: este capítulo tratará con profundidad
+  el funcionamiento de cada uno de los módulos del programa.
+ \item \textbf{Resolución de problemas y códigos de error}: finalmente, este capítulo estará
+  orientado a la resolución de errores, así como a la explicación
+  en profundidad de los errores producidos en el programa. 
+\end{enumerate}
+
+
+\section{Especificación de los actores del Sistema}
+
+Se ha decidido especificar el actor del Sistema
+en este capítulo, puesto que es necesario antes de especificar
+cada uno de los requisitos de usuario y funcionales que se derivan
+de estos módulos.
+
+Como ya se ha comentado en apartados anteriores, el software que se quiere desarrollar
+tiene una finalidad docente. Debido a esto, estará dirigido a dos tipos de usuarios: \textit{profesores} y \textit{alumnos}. A la hora de usar la aplicación no habrá distinción entre unos y otros porque ambos harán el mismo uso, por tanto solamente se tendrá en cuenta un único tipo de usuario final. Así, en posteriores capítulos, cuando se haga referencia al 
+\textit{actor} de la aplicación, deberá tenerse en cuenta lo comentado en este apartado.
+
+\section{Requisitos de usuario}
+
+En este apartado se recogen los requisitos del usuario; esto es, 
+los requisitos que el usuario precisa en el Sistema. Puesto que solamente
+existe un usuario (o actor) en el Sistema, todos los requisitos
+que se muestran son para el mismo usuario. Los requisitos de
+usuario se denotan como \textbf{RU-$<$ número de requisito $>$}.
+
+Los requisitos de usuario se encuentran agrupados por categorías que se muestran a continuación:
+
+\begin{itemize}
+ \item \textbf{Edición de gramáticas}: requisitos de usuario relacionados
+con la \textit{edición de gramáticas de contexto libre}.
+ \item \textbf{Simulación}: requisitos de usuario relacionados
+con la \textit{simulación}, según los métodos sintácticos descendentes y ascendentes, de gramáticas
+de contexto libre.
+ \item \textbf{Tutorial de la aplicación}: requisitos de usuario
+referentes al \textit{tutorial} de la aplicación.
+ \item \textbf{Ayuda de la aplicación}: requisitos de 
+usuario de la \textit{ayuda} de la aplicación.
+\end{itemize}
+
+\subsection{Edición de gramáticas}
+
+\textbf{RU-1}: el usuario podrá crear una gramática de contexto libre, además podrá asignar un nombre y una descripción a la gramática. No deberá existir ninguna limitación en el número de gramáticas que puede crear el usuario.
+
+\textbf{RU-2}: una vez creada la gramática, el usuario podrá:
+
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-2.1}:] definir el vocabulario de símbolos terminales y no terminales
+que componen la gramática. Estos símbolos podrán ser definidos
+según los convenios de notación que se especifican
+en el Anexo A (permitiéndose también el uso de la palabra vacía
+o $\epsilon$). \\
+
+\item [\hspace*{1.5cm} \textbf{RU-2.2}:] se deberá permitir que el usuario pueda modificar el 
+vocabulario de símbolos cuando lo desee, teniendo en cuenta también si estos
+símbolos están asignados a reglas de producción o no
+(informando al usuario además de todos los errores que se produzcan).
+
+\end{description}
+
+
+\textbf{RU-3}: cuando el usuario haya creado el vocabulario de la gramática, podrá utilizar
+los símbolos creados para crear cada una de las producciones de la gramática.
+
+
+\textbf{RU-4}: el usuario podrá crear o editar las producciones
+de la gramática, permitiéndose además el borrado
+de las mismas. A la hora de crearlas o modificarlas,
+el usuario podrá seleccionar los símbolos de entre el vocabulario
+de la gramática, creados como se especifica en \textbf{RU-2}.
+A partir de estos símbolos, el usuario podrá definir
+el \textit{antecedente} y el \textit{consecuente} de la producción.
+
+\textbf{RU-5}: el usuario podrá visualizar la gramática de forma 
+\textit{natural}, a medida que la va creando. Un ejemplo de este hecho sería:
+\begin{center}
+ $<${\em asignación}$>$ $\rightarrow$ {\em identificador}
+{\em =} $<${\em expresión}$>$
+\end{center}
+
+\textbf{RU-6}: el usuario, una vez creadas las reglas de producción, podrá seleccionar de entre los símbolos no terminales cuál será símbolo inicial de la gramática.
+
+\textbf{RU-7}: el usuario podrá generar un informe de la gramática definida, con la que podrá visualizar la misma. Esta visualización representará las producciones de la gramática como se especifica
+en \textbf{RU-5}. Además, este informe contendrá información detallada acerca del \textit{vocabulario}
+de la gramática (símbolo inicial, producciones, terminales y
+no terminales). Este informe podrá ser guardado en el disco duro si el usuario lo desea.
+
+
+\textbf{RU-8}: el usuario podrá guardar una 
+gramática previamente definida, con objeto de 
+poder recuperarla posteriormente para trabajar con ella sin necesidad de volver a crearla.
+
+
+\textbf{RU-9}: el usuario podrá recuperar una gramática guardada.
+
+\textbf{RU-10}: el usuario podrá validar una gramática creada. Así se podrá
+garantizar que la gramática puede ser utilizada en una simulación
+posterior. En el caso de que se produzcan errores, 
+se deberán notificar al usuario antes de continuar.
+El usuario también será notificado en caso de que la
+gramática sea validada con éxito. 
+
+
+\textbf{RU-11}: el usuario podrá transferir una 
+gramática al simulador y realizar una simulación
+con ella. El usuario solamente podrá transferir una gramática.
+
+
+\subsection{Simulación} 
+
+
+\textbf{RU-12}: el usuario podrá seleccionar el mecanismo a simular, método descendente o método ascendente:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-12.1}:] se obtendrá los conjuntos Primero y Siguiente.
+
+\item [\hspace*{1.5cm} \textbf{RU-12.2}:] el usuario podrá obtener la tabla predictiva o la tabla LR correspondiente. 
+
+\item [\hspace*{1.5cm} \textbf{RU-12.3}:] se construirán todas las estructuras adicionales
+necesarias para la simulación:
+\begin{itemize}
+\item Conjuntos primero y siguiente.
+\item Tabla predictiva (análisis sintácticos descendente).
+\item Tabla de análisis LR: tabla acción y tabla ir\_a (análisis ascendente LR).
+\end{itemize}
+
+\item [\hspace*{1.5cm} \textbf{RU-12.4}:] las tablas de análisis podrán ser completadas
+con las funciones de error que haya definido el usuario.
+
+\end{description}
+
+
+\textbf{RU-13}: el usuario podrá asignar funciones de tratamiento de error a las tablas de análisis:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-13.1}:] el usuario podrá utilizar el \textit{método de nivel
+de frase} o el \textit{modo de pánico} para ampliar las tablas. 
+
+\item [\hspace*{1.5cm} \textbf{RU-13.2}:] el usuario podrá asignar un identificador a cada función, para poderla diferenciar de las demás. 
+
+\item [\hspace*{1.5cm} \textbf{RU-13.3}:] el usuario podrá asignar a las funciones un mensaje que las
+describa y una acción a llevar a cabo cuando sean aplicadas y  un símbolo que será usado en la acción de la misma. De esta forma, el usuario podrá asignar a una gramática tantas funciones de error como desee (o ninguna).
+
+\end{description}
+
+
+\textbf{RU-14}: el usuario será informado de cualquier anomalía o error que se produzca durante 
+la generación de la tablas de análisis.
+
+
+\textbf{RU-15}: el usuario, una vez se hayan generado todos los elementos necesarios:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-15.1}:] podrá simular el método sintáctico descendente.
+
+\item [\hspace*{1.5cm} \textbf{RU-15.2}:] podrá simular los métodos sintácticos ascendentes LR, estos son \textit{SLR}, \textit{LR-canónico} y \textit{LALR}. 
+
+\end{description}
+
+
+\textbf{RU-16}: el usuario podrá introducir una \textit{cadena de símbolos terminales}
+para realizar el análisis. 
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-16.1}:] esta cadena deberá estar formada
+por símbolos terminales de la gramática. 
+
+\item [\hspace*{1.5cm} \textbf{RU-16.2}:] también se permite el uso de 
+\textit{símbolos especiales}, tales como la palabra vacía ($\epsilon$).
+
+\end{description}
+
+
+\textbf{RU-17}: una vez construidos los conjuntos Primero y Siguiente, la tabla de análisis y seleccionados
+los símbolos terminales y no terminales, la simulación se podrá realizar de paso a paso. 
+
+
+\textbf{RU-18}: en la simulación, se mostrará al usuario
+una tabla de análisis, que contendrá los resultados de la simulación, además de todos los
+errores producidos y se notificará si la cadena es reconocida o no.
+
+
+\textbf{RU-19}: en la simulación paso a paso, se construirá la
+tabla de análisis fila a fila, informando al usuario
+de los errores en el momento que se produzcan.
+
+
+\textbf{RU-20}: el usuario será informado de todos los errores
+que se pudieran producir durante la simulación:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-20.1}:] si el usuario ha definido funciones de tratamiento de error,
+éstas deberán de ser aplicadas. 
+
+\item [\hspace*{1.5cm} \textbf{RU-20.2}:] el usuario deberá conocer en todo momento qué funciones han sido aplicadas para solucionar los errores.
+
+\end{description}
+
+
+\textbf{RU-21}: El usuario obtendrá tras la simulación:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-21.1}:] un informe detallado de todos los pasos seguidos en formato pdf o html, así como los resultados finales. 
+
+\item [\hspace*{1.5cm} \textbf{RU-21.2}:] además contendrá los conjuntos Primero y Siguiente, la tabla de análisis y todos los componentes auxiliares generados, así como el proceso de análisis desarrollado. 
+
+\item [\hspace*{1.5cm} \textbf{RU-21.3}:] también serán incluidos todos los errores que se hayan producido
+durante la simulación (así como las funciones de error que se hayan utilizado).
+
+\end{description}
+
+
+\textbf{RU-22}: El usuario podrá guardar los \textit{informes de
+simulación} en el disco, para poder utilizarlos con posterioridad,
+sin necesidad de abrir la aplicación.
+
+
+\textbf{RU-23}: el usuario podrá abortar la simulación, para
+cambiar la gramática o el método a simular. El usuario deberá ser avisado de la pérdida
+de todo el trabajo realizado hasta el momento y deberá de poder
+guardar todo el trabajo si lo desea.
+
+
+\subsection{Tutorial de la aplicación}
+
+
+\textbf{RU-24}: el usuario podrá consultar un tutorial que
+explique los procedimientos de Análisis Sintáctico. 
+
+
+\textbf{RU-25}: el tutorial de la aplicación se organizará por lecciones:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-25.1}:] deberá cubrir todo el proceso de análisis sintáctico tanto ascendente como descendentecon sus diferentes métodos. 
+
+\item [\hspace*{1.5cm} \textbf{RU-25.2}:] el usuario podrá consultar
+ejemplos que ilustren las explicaciones de cada sección.
+
+\end{description}
+
+
+\subsection{Ayuda de la aplicación}
+
+
+\textbf{RU-26}: el usuario podrá consultar una ayuda sobre la
+aplicación que detalle el funcionamiento de cada uno de los módulos
+de del programa:
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RU-26.1}:] la ayuda contendrá información acerca de la
+interfaz del programa y de los errores que se puedan producir
+en tiempo de ejecución. 
+
+\item [\hspace*{1.5cm} \textbf{RU-26.2}:] la ayuda estará organizada según los módulos que componen la aplicación, detallando además el funcionamiento de la interfaz del mismo y un ejemplo de ejecución.
+
+\item [\hspace*{1.5cm} \textbf{RU-26.3}:] ésta no tratará los puntos que aborde el tutorial de la aplicación.
+
+\end{description}
+
+
+\section{Requisitos funcionales}
+
+En esta sección se recogen los requisitos funcionales
+de la aplicación. Estos se derivan de los requisitos de usuario
+de la sección anterior. Los requisitos se muestran
+agrupados, según los módulos ya identificados en la sección anterior
+y se denotan como \textbf{RF-$<$acrónimo del módulo$>$-$<$número de requisito$>$}.
+
+
+Los requisitos funcionales se encuentran agrupados
+según los módulos funcionales del Sistema, que son
+las siguientes:
+
+\begin{itemize}
+ \item \textbf{Módulo Editor de gramáticas}: requisitos
+funcionales del \textit{editor de gramáticas}.
+ \item \textbf{Módulo Simulador}: requisitos funcionales
+del \textit{simulador}.
+ \item \textbf{Módulo Tutorial}: requisitos funcionales
+del \textit{tutorial}.
+ \item \textbf{Módulo Ayuda}: requisitos funcionales
+del \textit{ayuda}.
+\end{itemize}
+
+\subsection{Requisitos funcionales del Editor de gramáticas}
+
+Esta sección recoge todos los requisitos funcionales del
+\textit{Editor de gramáticas}. Estos se enumeran a continuación:
+
+
+\textbf{RF-E-1}: el editor de gramáticas permitirá
+al usuario crear una gramática desde cero. El usuario
+podrá crear o recuperar tantas gramáticas como desee,
+sin imponer ninguna restricción al número de gramáticas
+que podrá estar editando a la vez el usuario. 
+
+\textbf{RF-E-2}: el editor de gramáticas permitirá la creación y edición del vocabulario
+de símbolos de la gramática (símbolos terminales y no terminales):
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RF-E-2.1}:] se contemplará el uso
+de caracteres especiales (expuestos en la nomenclatura del Anexo A), 
+tales como los siguientes: $\epsilon$, $\rightarrow$, etcétera.
+
+\item [\hspace*{1.5cm} \textbf{RF-E-2.2}:] se podrán definir símbolos propios para construir
+dichas reglas (ejemplo: $<$asignación$>$). 
+
+\item [\hspace*{1.5cm} \textbf{RF-E-2.3}:] a cada símbolo especial
+ de la gramática se le asignará un código especial (para
+que lo distinga el simulador) y otro código en \textit{unicode} (para facilitar
+la representación de \textit{forma natural}). 
+
+\item [\hspace*{1.5cm} \textbf{RF-E-2.4}:] se controlarán todos los errores asociados a la creación
+y edición de símbolos, notificándolos al usuario de la forma más clara y simple posible.
+
+\end{description}
+
+
+\textbf{RF-E-3}: el editor permitirá crear las reglas de producción, 
+utilizando los símbolos de la gramática creados por el usuario. Además, se comprobará si el \textit{antecedente} de la misma es un \textit{único símbolo no terminal}.
+
+
+\textbf{RF-E-4}: la inserción de reglas de producción estará controlada
+y se informará al usuario de todos los errores que se produzcan.
+Asímismo, si el usuario intenta introducir dos veces la misma
+regla, el sistema lo notificará, permitiéndose solamente
+una instancia de la misma.
+
+
+\textbf{RF-E-5}: el editor de gramáticas permitirá la edición de todas las
+producciones introducidas, permitiéndose modificar ambas partes
+de la producción (antecedente y consecuente). Además, se permitirá
+borrar las producciones de la gramática.
+
+
+\textbf{RF-E-6}: el símbolo inicial de la gramática se tomará, por defecto, como 
+el antecedente de la primera producción que haya introducido el usuario. 
+Aún así, el editor permitirá al usuario cambiarlo posteriormente si así lo 
+desea. La gramática solamente podrá tener un único símbolo inicial.
+
+
+\textbf{RF-E-7}: la gramática tendrá asociada un nombre
+y una descripción, los cuales introducirá el usuario
+desde el propio editor de gramáticas. Tanto el nombre como la 
+descripción pueden ser modificados en cualquier momento.
+
+
+\textbf{RF-E-8}: la gramática será visualizada en el editor
+a medida que se vaya construyendo. Así, se irá actualizando
+con cada nueva regla que se introduzca. 
+
+
+\textbf{RF-E-9}: el editor permitirá, generar un informe de la gramática actual.
+Este informe contendrá toda la visualización y componentes de la misma, y podrá
+ser guardado en el disco a petición del usuario. 
+
+
+\textbf{RF-E-10}: el editor de gramáticas permitirá cerrar la gramática
+actual. Para ello, se notificará al usuario de la acción y se
+guardará la gramática en curso, si el usuario lo desea
+(evitándose todas las posibles pérdidas de datos).
+
+
+\textbf{RF-E-11}: la gramática actual podrá ser guardada en
+el disco para su posterior uso. Se pedirá al usuario un 
+nombre para el archivo y el lugar para almacenarlo, además de un nombre para la gramática, en
+caso de que no lo haya introducido.
+
+
+\textbf{RF-E-12}: el editor de gramáticas permitirá abrir una gramática
+guardada en un fichero para así cargarla en el editor. Se controlarán todos 
+los errores producidos por esta acción y se mostrarán al usuario todos los 
+errores producidos en caso de que no se pueda cargar la gramática.
+
+
+\textbf{RF-E-13}: la validación de la gramática comprobará
+que la gramática puede ser utilizada para realizar una simulación.
+En esta validación se deberán comprobar los siguientes aspectos:
+
+   \begin{itemize}
+    \item Solamente puede existir un símbolo inicial (según lo especificado en \textbf{RF-E-6}).
+    \item Todos los símbolos no terminales que aparezcan en el lado
+    derecho de una regla (es decir, que estén en el consecuente de una
+    regla), deberán aparecer al menos una vez en el lado izquierdo
+    de alguna regla. (No puede haber símbolos no terminales
+    que no tengan asociada ninguna regla de producción).    
+    \item Todos los símbolos de la gramática, terminales y no terminales, deberán
+    ser usados en las producciones de la gramática.
+   \end{itemize}
+
+\textbf{RF-E-14}: los errores identificados durante la validación
+serán notificados al usuario. No se permitirá continuar con la
+simulación en caso de detectarse errores en la gramática. En caso
+de que la validación sea satisfactoria, se comunicará al usuario
+con un mensaje.
+
+
+\textbf{RF-E-15}: el editor de gramáticas permitirá transferir gramáticas al 
+simulador para realizar simulaciones de los métodos de análisis sintácticos. 
+Solamente se podrán transferir aquellas gramáticas que hayan
+sido validadas satisfactoriamente. Esta acción inicializará el 
+simulador y cargará la gramática dentro del mismo para poder simularla.
+
+
+\subsection{Requisitos funcionales del Simulador}
+
+\textbf{RF-S-1}: el simulador permitirá que el usuario
+seleccione el método que desea simular, método descendente o método ascendente LR (\textit{SLR}, \textit{LR-canónico} y \textit{LALR}).
+
+\textbf{RF-S-2}: el simulador creará los conjuntos Primero y Siguiente. Estos serán necesarios para el análisis sintáctico descendente y para el método SLR de análisis sintáctico ascendente.
+
+\textbf{RF-S-3}: el simulador construirá la \textit{tabla predictiva} o la 
+\textit{tabla LR} y todos los elementos auxiliares necesarios para el método 
+seleccionado. El simulador permitirá además completar dicha tabla con las 
+funciones de error definidas por el usuario (en caso de que haya definido alguna).
+
+
+\textbf{RF-S-4}: el simulador permitirá el uso
+de funciones de tratamiento de error tanto en la tabla predictiva como en la tabla LR, 
+según el método de nivel de frase o método de pánico. Además, se permitirá al usuario
+guardar estas funciones de error, para poder ser utilizadas más tarde en otra gramática
+o en la misma gramática si así lo desea.
+
+
+\textbf{RF-S-5}: el simulador notificará todos los errores
+que se produzcan durante la creación de las tablas.
+
+
+\textbf{RF-S-6}: las funciones de error serán invocadas durante
+la simulación, cuando se produzca un error.
+
+
+\textbf{RF-S-7}: el simulador permitirá que la simulación
+comience una vez se haya escogido un \textit{método} y se haya generado
+la \textit{tabla} correspondiente (tanto si está completada por funciones 
+de error como si no lo está).
+
+
+\textbf{RF-S-8}: el simulador pedirá al usuario una cadena de entrada para 
+comprobar si es reconocida por el método de simulación. Dicha cadena podrá
+también ser vacía ($\epsilon$). Finalmente,
+se deberán controlar todos los posibles errores
+de entrada-salida, o de simulación, que pudieran suceder.
+
+
+\textbf{RF-S-9}: una vez creada la tabla predictiva o la tabla LR e introducida
+la cadena de entrada, se podrá iniciar la simulación, de forma
+continua o paso a paso.
+
+
+\textbf{RF-S-10}: en la simulación continuada, el simulador
+mostrará el resultado final de la simulación en una tabla, conteniendo
+además todos los errores producidos. La tabla se generará y se mostrará
+completa al usuario.
+
+
+\textbf{RF-S-11}: en la simulación paso a paso, el simulador
+mostrará el resultado de la simulación paso a paso, construyendo
+la tabla de resultado de forma \textit{incremental}, a medida que el usuario
+solicite continuar la simulación.
+
+
+\textbf{RF-S-12}: el simulador informará al usuario
+de cualquier error que se produzca durante la simulación. 
+Si existen funciones de tratamiento de error asociadas, se 
+utilizarán, indicando al usuario el motivo de su uso.
+
+
+\textbf{RF-S-13}: el simulador generará un informe de simulación
+al finalizar en formato pdf o html. Este contendrá todas las estructuras
+necesarias para llevar a cabo el análisis, así como todos
+los pasos seguidos durante el análisis (incluyendo todos
+los errores producidos). 
+
+\textbf{RF-S-14}: el simulador permitirá guardar los
+informes de simulación en el disco duro.
+
+
+\textbf{RF-S-15}: las simulaciones podrán ser abortadas, 
+para así poder cambiar la gramática, el método a simular o
+el conjunto de funciones de error.
+Se deberá informar al usuario si quiere conservar todo el trabajo
+realizado hasta ese punto y guardar los informes de simulación
+producidos (si los hay).
+
+
+\subsection{Requisitos funcionales del Tutorial}
+
+
+\textbf{RF-T-1}: el tutorial será accesible
+al usuario desde cualquier ventana de la aplicación.
+
+
+\textbf{RF-T-2}: el tutorial se organizará en lecciones, de forma tal 
+que cubran todo el proceso de operación con los mecanismos del análisis sintáctico.
+
+
+\subsection{Requisitos funcionales de la Ayuda}
+
+
+\textbf{RF-A-1}: la ayuda de la aplicación será accesible
+desde cualquier ventana de la aplicación.
+
+
+\textbf{RF-A-2}: la ayuda de la aplicación se estructurará en capítulos, 
+que contendrán ayuda sobre todos los módulos que componen la aplicación. 
+Además, se deberá explicar paso a paso todos los procedimientos que se 
+pueden llevar a cabo en ellos, utilizando para ello ejemplos de uso.
+
+
+\section{Requisitos no funcionales}
+
+En esta sección se recogen los requisitos no funcionales
+del Sistema. Estos se denotan como \textbf{RNF-$<$número de requisito$>$}.
+
+
+\textbf{RNF-1}: la interfaz del Sistema deberá de ser sencilla y siempre 
+estar enfocada al objetivo prioritario de la transmisión didáctica del 
+análisis sintáctico. Para ello, se emplearán menús intuitivos, así como 
+botones de acción e imágenes enfocados a los métodos del análisis sintáctico.
+
+
+\textbf{RNF-2}: la aplicación deberá controlar
+todos los errores que se produzcan durante la ejecución
+(errores de entrada-salida, de ejecución, de simulación,
+etcétera).
+
+\textbf{RNF-3}: el sistema deberá responder en un tiempo aceptable a las peticiones del usuario.
+
+
+
+\section{Requisitos de la información}
+
+En esta sección se recogen los requisitos de la información. 
+Éstos se denotan como \textbf{RI-$<$acrónimo del módulo$>$-$<$número de requisito$>$}.
+Los requisitos se encuentran agrupados por conceptos identificados
+en el problema técnico o durante la especificación de los requisitos de usuario.
+
+Los requisitos de la información se agrupan 
+según los siguientes \textit{bloques de información}:
+
+\begin{itemize}
+ \item \textbf{Gramática de contexto libre}: requisitos
+de información del módulo \textit{gramática de contexto libre}.
+ \item \textbf{Editor de gramáticas}: requisitos
+de información del módulo \textit{editor de gramáticas}.
+ \item \textbf{Simulador}: requisitos
+de información del módulo \textit{simulador}.
+ \item \textbf{Ayuda de la aplicación}: requisitos
+de información del módulo \textit{ayuda de la aplicación}.
+ \item \textbf{Tutorial de la aplicación}: requisitos
+de información del módulo \textit{tutorial de la aplicación}.
+ \item \textbf{Informes}: requisitos
+de información del módulo \textit{informe de gramática}
+y \textit{informe de simulación}.
+
+\end{itemize}
+
+\subsection{Gramática de contexto libre}
+
+\textbf{RI-G-1}: una gramática de contexto libre está
+formada por un conjunto de símbolos (\textbf{terminales}
+y \textbf{no terminales}), un \textit{símbolo
+inicial} y una o más reglas o \textit{producciones}.
+Además, la gramática tendrá asociada un \textit{nombre}
+y una \textit{descripción}. 
+
+
+\textbf{RI-G-2}: el conjunto de símbolos de la gramática
+está formado por una agrupación de símbolos \textit{terminales} y 
+símbolos \textit{no terminales}. Cada uno de estos símbolos
+será representado como una representación en
+una cadena de caracteres y tendrá asociado un código
+(que indicará si es un carácter especial como $\epsilon$).
+
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RI-G-2.1}:] los \textbf{símbolos no terminales}
+se representarán entre ángulos, de la forma
+\textit{$<$asignación$>$} o como una única letra
+maýuscula, como \textit{S} por ejemplo.
+
+
+\item [\hspace*{1.5cm} \textbf{RI-G-2.2}:] los \textbf{símbolos terminales}
+se representarán en minúsculas (\textit{identificador},
+\textit{número}, etcétera).
+
+
+\end{description}
+
+
+
+\textbf{RI-G-3}: el símbolo inicial de la gramática
+será el antecedente de la primera
+regla introducida por el usuario, aunque será
+representado como uno de los símbolos \textit{no terminales}
+de la gramática.
+
+
+
+\textbf{RI-G-4}: una \textbf{producción} está compuesta de dos
+partes: \textit{antecedente} y \textit{consecuente}.
+
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RI-G-4.1}:] el \textbf{antecedente} de una producción solamente
+puede estar formado por un \textit{símbolo no terminal}. 
+
+
+\item [\hspace*{1.5cm} \textbf{RI-G-4.2}:] el \textbf{consecuente} de una producción
+puede estar formado por una cadena de símbolos gramaticales (tanto
+símbolos \textit{terminales} como \textit{terminales}) que puede ser vacía
+($ \epsilon $). Esta parte de la producción no posee ninguna
+limitación en cuanto al tamaño o número de símbolos que
+contiene.
+
+\item [\hspace*{1.5cm} \textbf{RI-G-4.3}:] las flechas separan el antecedente
+y consecuente de una regla ($\rightarrow$).
+
+
+\end{description}
+
+
+
+\textbf{RI-G-5}: en una gramática de contexto libre
+ no pueden existir símbolos no terminales que no aparezcan
+en el antecedente de, al menos, una producción.
+
+
+\textbf{RI-G-6}: el símbolo vacío
+se define como $ \epsilon $. No puede existir ningún
+otro símbolo con el mismo significado que ocupa
+el símbolo vacío. También se permitirá contemplar otros símbolos especiales, 
+tales como $\alpha$, $\beta$, etcétera.
+
+
+\textbf{RI-G-7}: no pueden existir dos símbolos
+(\textit{terminales} o \textit{no terminales}) iguales.
+
+
+
+\subsection{Editor de gramáticas}
+
+
+\textbf{RI-E-1}: el editor utiliza gramáticas
+de contexto libre, realizando con ellas las operaciones
+descritas en la sección \textit{7.3.1. Requisitos funcionales del Editor de gramáticas}. Los requisitos de información de las gramáticas se recogen en la sección anterior.
+El editor puede utilizar una o varias gramáticas 
+de contexto libre al mismo tiempo.
+
+
+\textbf{RI-E-2}: el informe de la gramática
+se representará por un documento PDF que contendrá
+toda la información acerca de los componentes de la gramática.
+
+
+
+\subsection{Simulador}
+
+
+\textbf{RI-S-1}: el simulador utiliza gramáticas
+de contexto libre. No existe ninguna limitación
+en el número de gramáticas que se pueden cargar
+en el simulador.
+
+
+\textbf{RI-S-2}: el simulador está compuesto por
+los siguientes elementos: \textit{método de análisis sintáctico}, 
+\textit{cadena de entrada} y \textit{modo de funcionamiento}.
+
+
+\textbf{RI-S-3}: el método de análisis sintáctico puede ser descendente o ascendente. Dentro del análisis sintáctico ascendente se podrá elegir entre: \textbf{SLR}, \textbf{LR-canónico} y \textbf{LALR}.
+
+\textbf{RI-S-4}: en el caso de elegir el análisis sintáctico descendente o el método SLR del análisis sintáctico ascendente será necesario construir los conjuntos Primero y Siguiente.
+
+\textbf{RI-S-5}: la cadena de entrada
+estará formada por un conjunto de símbolos \textit{terminales}.
+ Estos símbolos deberán pertenecer a la gramática. Además, el símbolo
+$\epsilon$ (símbolo vacío) se podrá insertar en la cadena de entrada.
+
+\begin{description}
+
+\item [\hspace*{1.5cm} \textbf{RI-S-5.1}:] la cadena podrá ser \textbf{vacía}, conteniendo
+únicamente el símbolo vacío ($\epsilon$). 
+
+\item [\hspace*{1.5cm} \textbf{RI-S-5.2}:] la cadena podrá \textbf{contener} tanto símbolos que
+pertenezcan al vocabulario de símbolos terminales de la gramática
+como símbolos que no pertenezcan.
+
+\end{description}
+
+
+\textbf{RI-S-6}: el modo de funcionamiento del simulador
+puede ser \textit{continuo} o \textit{paso a paso}.
+
+
+\textbf{RI-S-7}: el simulador construye la tabla predictiva (para el análisis sintáctico descendente) o la tabla de análisis LR (para el análisis sintáctico ascendente), a partir de la
+gramática y el método de análisis a simular. 
+
+
+\textbf{RI-S-8}: la tabla predictiva y la tabla de análisis LR tendrán asignadas
+cero o varias funciones de tratamiento de error.
+
+
+\textbf{RI-S-9}: en el caso del análisis sintáctico descendente, el simulador genera la tabla
+de análisis a partir de la \textit{tabla predictiva} y la \textit{cadena a reconocer}. Esta tabla tendrá dos partes: los símbolos \textit{terminales} colocados horizontalmente y los símbolos \textit{no terminales} colocados verticalmente. Todo esto seguirá todos los convenios del análisis descendente.
+
+
+\textbf{RI-S-10}: en el caso del análisis sintáctico ascendente, el simulador genera la tabla
+de análisis a partir de la \textit{tabla LR}, del \textit{modo de
+funcionamiento} y la \textit{cadena a reconocer}. Esta tabla tendrá tres partes:
+pila, entrada y acción. Estas partes seguirán
+todos los convenios del análisis ascendente.
+
+\textbf{RI-S-11}: el informe de simulación
+estará formado a partir de la información recogida en la tabla de análisis
+y la tabla predictiva o la tabla LR, indicando además el resultado de la 
+simulación y los errores producidos (si los hay). El informe
+se almacenará en formato PDF.
+
+
+\subsection{Ayuda de la aplicación}
+
+
+\textbf{RI-A-1}: la ayuda de la aplicación estará dividida
+en capítulos.
+
+
+\textbf{RI-A-2}: cada capítulo tendrá un menú de navegación
+para poder moverse dentro del mismo capítulo o volver al índice
+de la ayuda.
+
+
+\textbf{RI-A-3}: cada capítulo se almacena en un fichero en 
+formato \textit{HTML} simple sin estilos CSS.
+
+
+\subsection{Tutorial de la aplicación}
+
+
+\textbf{RI-T-1}: el tutorial de la aplicación estará compuesto
+de lecciones.
+
+
+\textbf{RI-T-2}: cada lección contiene explicaciones, ejemplos
+y ejercicios sobre los conceptos de los métodos de Análisis sintáctico. Además,
+el tema tendrá asociado un menú para navegar por el contenido
+o volver al índice del tutorial.
+
+
+\textbf{RI-T-3}: el tutorial será almacenado en formato PDF. Esto permitirá su fácil modificación a lo largo del tiempo, para añadir o mejorar el contenido que contenga (sin necesidad de ampliar o modificar el software
+de la aplicación).
+
+
+\subsection{Informes}
+
+
+\textbf{RI-INF-1}: el informe de gramática contendrá
+información de los componentes que forman la gramática
+(símbolos terminales y no terminales, símbolo inicial y producciones),
+así como de una representación gráfica de la misma. 
+El formato del informe será de tipo documento pdf o html.
+
+
+\textbf{RI-INF-2}: el informe de simulación contendrá
+información de la gramática a simular, del método
+de análisis sintáctico a simular, los conjuntos Primero y Siguiente, la tabla predictiva o la tabla LR y las funciones de error, de la tabla de análisis generada así como del resultado
+del análisis. El formato del informe será de tipo documento pdf o html.
+
+\section{Validación de requisitos}
+
+En este capítulo se muestra la validación de los requisitos de usuario frente a los requisitos funcionales descritos anteriormente divididos por módulos para facilitar su visualización:
+
+
+
+
+\begin{center}
+
+\begin{table}[H]
+
+ \label{tabla6_1}
+ \caption{Matriz de correspondencia RU-RF. Edición de Gramáticas}
+ 
+\resizebox{15cm}{!} {
+\begin{tabular}[c]{| c | c | c | c | c | c | c | c | c | c | c | c | c |}
+\hline
+
+
+
+  \multicolumn{13}{|c|}{\textbf{Requisitos de usuario}} \\ \hline
+  \multirow{13}{0.5cm}{\begin{sideways}\textbf{Requisitos funcionales \ \ \ \ \ }\end{sideways}} 
+  
+ & & RU-1 & RU-2 & RU-3 & RU-4 & RU-5 & RU-6 & RU-7 & RU-8 & RU-9 & RU-10 & RU-11\\ 
+ \cline{2-13}
+ &RF-E-1 & X &  & & & & & & & & &  \\ 
+ \cline{2-13}
+ &RF-E-2 &  & X & & & & & & & & &  \\ 
+ \cline{2-13}
+ &RF-E-3 &  &  & X & & & & & & & &  \\ 
+ \cline{2-13}
+ &RF-E-4 &  &  & & X & & & & & & &  \\ 
+ \cline{2-13}
+ &RF-E-5 &  &  & & X & X & & & & & &  \\ 
+ \cline{2-13}
+  &RF-E-6 &  &  & & & & X & & & & &  \\ 
+ \cline{2-13}
+  &RF-E-7 &  &  & & & & & X & & & &  \\ 
+ \cline{2-13}
+  &RF-E-8 &  &  & & & & & X & & & &  \\ 
+ \cline{2-13}
+  &RF-E-9 &  &  & & & & & X & & & &  \\ 
+ \cline{2-13}
+  &RF-E-10 &  &  & & & & & & X & & & \\ 
+ \cline{2-13}
+  &RF-E-11 &  &  & & & & & & X & & & \\ 
+ \cline{2-13}
+  &RF-E-12 &  &  & & & & & & & X & & \\ 
+ \cline{2-13}
+  &RF-E-13 &  &  & & & & & & & & X & \\ 
+ \cline{2-13}
+  &RF-E-14 &  &  & & & & & & & & X & \\ 
+ \cline{2-13}
+ &RF-E-15 &  &  & & & & & & & & & X \\ \hline
+
+\end{tabular}
+}
+
+\end{table}
+
+\end{center}
+
+
+
+
+\begin{center}
+
+\begin{table}[H]
+
+
+ \caption{Matriz de correspondencia RU-RF. Simulación}
+ 
+\resizebox{15cm}{!} {
+\begin{tabular}[c]{| c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
+\hline
+
+
+
+  \multicolumn{14}{|c|}{\textbf{Requisitos de usuario}} \\ \hline
+  \multirow{14}{0.3cm}{\begin{sideways}\textbf{Requisitos funcionales \ \ \ \ \ }\end{sideways}} 
+  
+ & & RU-12 & RU-13 & RU-14 & RU-15 & RU-16 & RU-17 & RU-18 & RU-19 & RU-20 & RU-21 & RU-22 & RU-23\\ 
+ \cline{2-14}
+ &RF-S-1 & X &  & & & & & & & & & & \\ 
+ \cline{2-14}
+ &RF-S-2 & X &  & & & & & & & & & & \\ 
+ \cline{2-14}
+ &RF-S-3 & X &  & & & & & & & & & & \\ 
+ \cline{2-14}
+ &RF-S-4 &  & X & & & & & & & & & & \\ 
+ \cline{2-14}
+ &RF-S-5 &  &  & X & & & & & & & & & \\ 
+ \cline{2-14}
+  &RF-S-6 &  &  & X & & & & & & & & & \\ 
+ \cline{2-14}
+  &RF-S-7 &  &  & & X & & & & & & & & \\ 
+ \cline{2-14}
+  &RF-S-8 &  &  & & & X & & & & & & & \\ 
+ \cline{2-14}
+  &RF-S-9 &  &  & & & & X & & & & & & \\ 
+ \cline{2-14}
+  &RF-S-10 &  &  & & & & & X & & & & & \\ 
+ \cline{2-14}
+  &RF-S-11 &  &  & & & & & & X & & & & \\ 
+ \cline{2-14}
+  &RF-S-12 &  &  & & & & & & & X & & &\\ 
+ \cline{2-14}
+  &RF-S-13 &  &  & & & & & & & & X & & \\ 
+ \cline{2-14}
+  &RF-S-14 &  &  & & & & & & & & & X &\\ 
+ \cline{2-14}
+  &RF-S-15 &  &  & & & & & & & & & & X \\   \hline
+
+\end{tabular}
+}
+ \label{tabla6_2}
+\end{table}
+
+\end{center}
+
+
+
+
+\begin{table}[H]
+
+
+ \caption{Matriz de correspondencia RU-RF. Tutorial}
+
+ \begin{center} 
+ \resizebox{6cm}{!} {
+\begin{tabular}[c]{| c | c | c | c |}
+
+\hline
+
+  \multicolumn{4}{|c|}{\textbf{Requisitos de usuario}} \\ \hline
+  \multirow{4}{0.3cm}{\begin{sideways}\textbf{R.funcionales}\end{sideways}} 
+  
+ \rule{0cm}{0.8cm}& &  RU-24 & RU-25 \\ 
+ \cline{2-4}
+ \rule{0cm}{0.9cm}&RF-T-1 & X &   \\ 
+ \cline{2-4}
+\rule{0cm}{0.9cm} &RF-T-2 &  &  X \\    \hline
+
+\end{tabular}
+
+}
+ \label{tabla6_3}
+\end{center}
+
+\end{table}
+
+
+\begin{table}[H]
+
+
+ \caption{Matriz de correspondencia RU-RF. Ayuda}
+
+ \begin{center} 
+ \resizebox{4.5cm}{!} {
+\begin{tabular}[c]{| c | c | c | }
+
+\hline
+
+  \multicolumn{3}{|c|}{\textbf{Requisitos de usuario}} \\ \hline
+  \multirow{3}{0.3cm}{\begin{sideways}\textbf{R.funcionales}\end{sideways}} 
+  
+ \rule{0cm}{0.8cm}& &  RU-26  \\ 
+ \cline{2-3}
+ \rule{0cm}{0.9cm}&RF-A-1 & X   \\ 
+ \cline{2-3}
+\rule{0cm}{0.9cm} &RF-A-2 & X   \\    \hline
+
+\end{tabular}
+
+}
+ \label{tabla6_4}
+\end{center}
+
+\end{table}
+

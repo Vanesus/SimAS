@@ -1,0 +1,63 @@
+\chapter{Futuras mejoras}
+
+
+
+\section{Introducción}
+
+En este capítulo se enumeran las futuras mejoras que podrían realizarse a SimAS. Estas mejoras permitirían completar su funcionamiento y harían que el programa fuera más completo.
+
+Aun siendo SimAS un programa que ha cubierto todos los objetivos pro\-pues\-tos, 
+siendo además muy intuititvo y amigable con el usuario, 
+hay ciertos aspectos que podrían ser mejorados o añadidos en un futuro. 
+
+Las mejoras que se podrían hacer al programa son las siguientes:
+
+\begin{itemize}
+ \item Generación de \textit{grafos} del AFD.
+ \item Generación de los \textit{árboles de derivación}.
+ \item \textit{Configuración} de la aplicación.
+ \item \textit{Internacionalización}.
+ \item Traducciones basadas en la \textit{sintaxis}.
+\end{itemize}
+
+\section{Generación de grafos del AFD}
+
+Los métodos de análisis sintáctico ascendente LR utilizan un autómata finito determinista (AFD) para generar su tabla de análisis sintáctico. Actualmente dicho AFD se muestra de forma tabular. La mejora que se propone es que dicho automáta se muestre mediante un grafo dirigido.
+
+\section{Generación de los árboles de derivación}
+
+Sería deseable que se generasen los árboles de derivación a medida
+que se está simulando la gramática. Así, a la hora de ir reconociendo
+la cadena de símbolos terminales, se mostraría al usuario el árbol
+de derivación que se está construyendo.
+
+Esto permitiría a los usuarios ver el progreso de la simulación
+y conocer las estructuras de datos que se generan en un compilador
+a la hora de reconocer sentencias de un lenguaje de programación.
+
+\section{Configuración de la aplicación}
+
+Esta mejora permitiría configurar los componentes y módulos de la aplicación,
+de forma tal que el usuario pueda fijar sus preferencias respecto a la apariencia de la aplicación, como por ejemplo: el color de los diferentes paneles, funciones de error o símbolos terminales personalizados. Estas preferencias se guardarían
+en un fichero de configuración que sería cargado cada vez que el usuario iniciara la aplicación.
+
+\section{Internacionalización}
+
+Sería deseable que la aplicación estuviera disponible en otros idiomas.
+Esto permitiría potenciar al máximo su ámbito didáctico, puesto que SimAS
+podría ser utilizado en cualquier universidad donde el estudio de los diferentes métodos del análisis sintáctico estuviera dentro de los planes de estudio.
+
+Las traducciones de la aplicación serían guardadas en el paquete
+de recursos y se cargaría la aplicación con un idioma
+u otro, según las preferencias del usuario (almacenadas en el fichero
+de configuración de la aplicación).
+
+\section{Traducciones basadas en la sintaxis}
+
+Esta mejora permitiría incluir también el estudio y simulación
+del análisis semántico en SimAS. Mediante la realización de esta mejora,
+el software SimAS se completaría, permitiendo al alumno 
+estudiar todo el proceso de análisis de un programa
+(que está formado por las fases de análisis \textit{léxico}, \textit{sintáctico}
+y \textit{semántico}).
+
